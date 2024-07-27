@@ -9,7 +9,7 @@ export default function HeroSection() {
     <section className="relative h-svh">
       <div className="container">
         <div className="bg-image absolute top-0 bottom-0 right-0 left-0" style={{
-          background: "url(./src/assets/images/landing_page/Hero-bg.jpg) no-repeat center / cover",
+          background: "url(images/landing_page/Hero-bg.jpg) no-repeat center / cover",
           filter: 'brightness(66%)'
         }}></div>
 

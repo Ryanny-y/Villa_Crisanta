@@ -15,7 +15,7 @@ export default function PropertyBox({data}) {
   return (
     <Link to='/Villa/' className={linkClass} style={{height: '500px'}}>
       <div className="absolute top-7 bottom-7 right-7 left-7" style={{
-        background: `url(./src/assets/images/landing_page/${data.background_img}) no-repeat center / cover`,
+        background: `url(images/landing_page/${data.background_img}) no-repeat center / cover`,
         filter: 'brightness(80%)'
       }}></div>
 
