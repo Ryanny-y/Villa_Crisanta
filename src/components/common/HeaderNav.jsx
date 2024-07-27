@@ -17,7 +17,7 @@ export default function HeaderNav() {
   return (
     <header className={headerClass}>
       <div className="container mx-auto flex items-center justify-between py-3">
-        <Link to='/' className='flex items-center gap-3 font-semibold text-xl md:text-3xl'>
+        <Link to='/Villa_Crisanta/' className='flex items-center gap-3 font-semibold text-xl md:text-3xl'>
           <img src={logo} alt="" className='h-10 w-10 md:h-12 md:w-12'/>
           <p>Villa Crisanta Spring Resort</p>
         </Link>

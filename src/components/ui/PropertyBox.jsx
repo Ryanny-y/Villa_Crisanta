@@ -13,7 +13,7 @@ export default function PropertyBox({data}) {
   const linkClass = `bounce p-7 relative w-full bg-black text-black hover:hover-shadow property-box`
   
   return (
-    <Link to='/Villa' className={linkClass} style={{height: '500px'}}>
+    <Link to='/Villa/' className={linkClass} style={{height: '500px'}}>
       <div className="absolute top-7 bottom-7 right-7 left-7" style={{
         background: `url(src/assets/images/landing_page/${data.background_img}) no-repeat center / cover`,
         filter: 'brightness(80%)'

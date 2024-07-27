@@ -8,7 +8,7 @@ register();
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: 'Villa_Crisanta',
     element: <App/>
   }
 ]);
