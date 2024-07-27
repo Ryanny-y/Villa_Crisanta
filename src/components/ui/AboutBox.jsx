@@ -10,7 +10,7 @@ export default function AboutBox({data: { title, description, image } }) {
   return (
     <div className={divClass}>
       <div className={imgClass} style={{
-        background: `url(src/assets/images/landing_page/${image}.jpg) no-repeat center / cover`
+        background: `url(./src/assets/images/landing_page/${image}.jpg) no-repeat center / cover`
       }}>s</div>
 
       <div className="details flex flex-col gap-3 items-center justify-center text-center basis-3/5">
