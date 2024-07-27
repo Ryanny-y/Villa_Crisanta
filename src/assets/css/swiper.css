@@ -1,0 +1,17 @@
+
+
+.photo-gallery .nav-btn {
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 25px;
+}
+
+.photo-gallery .nav-btn.custom-next-button {
+  right: 5%;
+}
+
+.photo-gallery .nav-btn.custom-prev-button {
+  left: 5%;
+}
