@@ -5,7 +5,7 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 export default function PhotoGallery() {
 
   return (
-    <div className="container mx-auto photo-gallery relative">
+    <div className="container mx-auto photo-gallery relative pt-20">
       <swiper-container 
         slides-per-view="1" 
         space-between="20" 

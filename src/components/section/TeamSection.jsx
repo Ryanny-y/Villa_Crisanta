@@ -55,7 +55,7 @@ export default function TeamSection() {
   ]
 
   return ( 
-    <section className="team">
+    <section className="team pt-20">
       <div className="container mx-auto text-center text-black flex flex-col gap-10 items-center">
         <HeaderTitle title="Our Team"/>
 

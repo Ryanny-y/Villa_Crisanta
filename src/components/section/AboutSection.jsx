@@ -21,7 +21,8 @@ export default function AboutSection() {
   ]
   
   return (
-    <section className="about" id="about">
+
+    <section className="about pt-20" id="about">
       <div className="container mx-auto text-center text-black flex flex-col gap-10 items-center">
         <HeaderTitle title="About Us"></HeaderTitle>
 
