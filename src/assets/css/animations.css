@@ -10,6 +10,18 @@
   }
 }
 
+@keyframes scalebtn{
+  0% {
+      transform: scale(.9);
+  }
+  50% {
+      transform: scale(1);
+  }
+  100% {
+      transform: scale(.9);
+  }
+}
+
 .bounce {
   animation: bounce 2s infinite;
 }
@@ -17,4 +29,8 @@
 .property-box:hover {
   box-shadow: 0 0 45px rgb(250, 204, 22);
   transition: .5s;
+}
+
+.scale {
+  animation: scalebtn 2s infinite;
 }

@@ -50,7 +50,7 @@ export default function ContactSection() {
               <Header>Open Hours</Header>
 
               <div className="mt-2">
-                <p className="font-semibold flex items-center gap-2">Open Today 9:00 am - 5:00 pm <FontAwesomeIcon icon={faCaretDown} className="text-lg" onClick={() => setShow(curState => !curState)}/></p>
+                <p className="font-semibold flex items-center gap-2 cursor-pointer">Open Today 9:00 am - 5:00 pm <FontAwesomeIcon icon={faCaretDown} className="text-lg" onClick={() => setShow(curState => !curState)}/></p>
                 {show && <div className="text-sm font-semibold ml-16 flex flex-col gap-1">
                   <p><span className="mr-1 w-8 inline-block">Mon</span> 9:00 am - 5:00 pm</p>
                   <p><span className="mr-1 w-8 inline-block">Tue</span> 9:00 am - 5:00 pm</p>

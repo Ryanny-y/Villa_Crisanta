@@ -4,12 +4,17 @@ import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { register } from 'swiper/element/bundle';
+import Villa from './Villa.jsx'
 register();
 
 const router = createBrowserRouter([
   {
-    path: 'Villa_Crisanta',
+    path: '/Villa_Crisanta',
     element: <App/>
+  },
+  {
+    path: '/Villa_Crisanta/Villa',
+    element: <Villa/>
   }
 ]);
 
