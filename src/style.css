@@ -1,3 +1,7 @@
+body {
+  padding-bottom: 64px;
+}
+
 .container {
   --max-width: 1280px;
   --padding: 1rem;
@@ -20,4 +24,10 @@
   100% {
     transform: translateY(-10px);
   }
+}
+
+.landing-slider .swiper-pagination-bullet {
+  height: 50px !important;
+  width: 50px !important;
+  border-radius: 0 !important;
 }
