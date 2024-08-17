@@ -1,6 +1,7 @@
 import Header from '../common/Header'
 import { Outlet } from 'react-router-dom';
 import VillaProvider from '../../context/VillaContext'
+import Footer from '../common/Footer';
 
 const Layout = () => {
   return (
@@ -8,7 +9,7 @@ const Layout = () => {
       <VillaProvider> 
         <Header />
           <Outlet />
-        {/* <Footer /> */}
+        <Footer />
       </VillaProvider>
     </div>
   )

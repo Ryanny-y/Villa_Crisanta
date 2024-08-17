@@ -62,7 +62,7 @@ export default function LandingSlider({ children }) {
       >
         {children}
       </Swiper>
-      <div className="swiper-custom-pagination flex items-center justify-center gap-2 flex-wrap mt-3" />
+      <div className="swiper-custom-pagination flex items-center justify-center gap-1 sm:gap-2 flex-wrap mt-3" />
 
       {/* Custom Navigation */}
       <div className="custom-navigation-buttons text-4xl">

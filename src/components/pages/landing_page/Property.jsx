@@ -7,7 +7,7 @@ const Property = () => {
     <SectionLayout sectionId='property'>
       <HeaderTitle title='Choose Between Our Two Cozy Villas'/>
 
-      <div className="flex start justify-center gap-10 w-9/12 mx-auto">
+      <div className="flex start flex-col md:flex-row justify-center gap-10 w-11/12 md:w-9/12 mx-auto">
         <PropertyBox />
         <PropertyBox />
       </div>
