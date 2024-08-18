@@ -20,6 +20,9 @@ export default {
         'dark': '#202020',
         'dark-bg': '#202020e6',
         'light': 'rgb(250, 250, 250)'
+      },
+      screens: {
+        'xxs': '400px'
       }
     },
   },

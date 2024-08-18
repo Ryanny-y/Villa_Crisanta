@@ -4,11 +4,9 @@ import FeatureCard from "../../ui/villa/FeatureCard"
 
 const VillaAbout = () => {
   const { villaDetails } = useContext(VillaContext);
-  console.log(villaDetails);
   
-
   return (
-    <section id="about-us">
+    <section id="about-us" className="pt-20">
       <div className="container flex flex-col gap-8">
         <header className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-10">
           <h1 className="font-bold text-3xl md:text-4xl">What space to utilize</h1>

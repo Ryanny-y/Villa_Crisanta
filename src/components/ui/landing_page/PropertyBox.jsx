@@ -1,15 +1,17 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom"
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import useImageLoader from '../../../utils/hooks/useImageLoader'
+import { VillaContext } from '../../../context/VillaContext'
 
-const PropertyBox = ({ aos, duration, img }) => {
+const PropertyBox = ({ aos, duration, img, property }) => {
   const imgSrc = `images/landing/${img}.webp`;
-  const imgLoaded = useImageLoader(imgSrc)
+  const imgLoaded = useImageLoader(imgSrc);
+  const { setVillaDetails } = useContext(VillaContext); 
 
   return (
-    <div className="py-4 px-7 relative flex-grow bg-dark rounded-sm" style={{ height: '500px' }} data-aos={aos} data-aos-duration={duration}>
+    <Link to='/villa' onClick={() => {setVillaDetails(property)}} className="py-4 px-7 relative flex-grow bg-dark rounded-sm" style={{ height: '500px' }} data-aos={aos} data-aos-duration={duration}>
       <div className={`bg-[url('images/landing/small/${img}.png')] bg-cover bg-center rounded-sm brightness-70 h-full w-full`}>
         <img src={`images/landing/${img}.webp`} alt="Villa Img" className={`h-full w-full ${!imgLoaded ? 'opacity-0' : 'opacity-1'} transition-opacity duration-100`}/>
       </div>
@@ -19,7 +21,7 @@ const PropertyBox = ({ aos, duration, img }) => {
         <address className="underline text-sm font-semibold">Blk 26, Lot 8, Geneva Lake St., Phase 2, Lakewood Subd., Brgy. Tadlac, 4030 Los Baños Laguna</address>
         <button className='text-sm font-semibold hover:text-yellow-500'>View Page <FontAwesomeIcon icon={faArrowRight} className='ml-1'/></button>
       </div>
-    </div>
+    </Link>
   )
 }
 
