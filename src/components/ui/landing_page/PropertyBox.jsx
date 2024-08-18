@@ -1,11 +1,18 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom"
+import { useState } from 'react'
+import useImageLoader from '../../../utils/hooks/useImageLoader'
 
-const PropertyBox = ({ aos, duration }) => {
+const PropertyBox = ({ aos, duration, img }) => {
+  const imgSrc = `images/landing/${img}.webp`;
+  const imgLoaded = useImageLoader(imgSrc)
+
   return (
     <div className="py-4 px-7 relative flex-grow bg-dark rounded-sm" style={{ height: '500px' }} data-aos={aos} data-aos-duration={duration}>
-      <div className="bg-[url('images/landing/villa-1.webp')] bg-no-repeat bg-cover bg-center h-full rounded-sm brightness-70"></div>
+      <div className={`bg-[url('images/landing/small/${img}.png')] bg-cover bg-center rounded-sm brightness-70 h-full w-full`}>
+        <img src={`images/landing/${img}.webp`} alt="Villa Img" className={`h-full w-full ${!imgLoaded ? 'opacity-0' : 'opacity-1'} transition-opacity duration-100`}/>
+      </div>
 
       <div className="details flex flex-col items-start gap-2 absolute bottom-10 left-8 right-8 p-3 rounded-sm bg-white">
         <h1 className="font-bold text-lg md:w-1/2 leading-tight tracking-wide">VILLA CRISANTA 1 SPRING RESORT</h1>
