@@ -5,6 +5,7 @@ export const VillaContext = createContext();
 const VillaProvider = ({ children }) => {
   const [ villaDetails, setVillaDetails ] = useState({});
   
+  
   const value = {
     villaDetails, setVillaDetails
   }

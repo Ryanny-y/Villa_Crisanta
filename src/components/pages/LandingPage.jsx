@@ -7,7 +7,7 @@ import Team from "./landing_page/Team";
 const LandingPage = () => {
 
   return (
-    <main className="landing-page flex flex-col gap-16">
+    <main className="landing-page flex flex-col">
       <Hero />
       <Property />
       <About />

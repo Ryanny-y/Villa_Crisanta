@@ -2,9 +2,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom"
 
-const PropertyBox = () => {
+const PropertyBox = ({ aos, duration }) => {
   return (
-    <div className="animate-float py-4 px-7 relative flex-grow bg-dark rounded-sm" style={{ height: '500px' }}>
+    <div className="py-4 px-7 relative flex-grow bg-dark rounded-sm" style={{ height: '500px' }} data-aos={aos} data-aos-duration={duration}>
       <div className="bg-[url('images/landing/villa-1.webp')] bg-no-repeat bg-cover bg-center h-full rounded-sm brightness-70"></div>
 
       <div className="details flex flex-col items-start gap-2 absolute bottom-10 left-8 right-8 p-3 rounded-sm bg-white">

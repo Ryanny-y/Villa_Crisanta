@@ -8,8 +8,8 @@ const Property = () => {
       <HeaderTitle title='Choose Between Our Two Cozy Villas'/>
 
       <div className="flex start flex-col md:flex-row justify-center gap-10 w-11/12 md:w-9/12 mx-auto">
-        <PropertyBox />
-        <PropertyBox />
+        <PropertyBox aos="zoom-in" duration="800"/>
+        <PropertyBox aos="zoom-in" duration="800"/>
       </div>
     </SectionLayout>
   )

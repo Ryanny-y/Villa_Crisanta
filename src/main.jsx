@@ -5,7 +5,8 @@ import { register } from 'swiper/element/bundle';
 import './index.css'
 import './style.css'
 import App from './App'
-import LandingPage from './components/pages/LandingPage'
+import LandingPage from './components/pages/LandingPage';
+import Villa from './components/pages/Villa';
 
 register();
 const router = createBrowserRouter([
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <LandingPage />
+      },
+      {
+        path: 'villa',
+        element: <Villa />
       }
     ]
   }

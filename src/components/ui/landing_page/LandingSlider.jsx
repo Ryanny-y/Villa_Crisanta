@@ -1,12 +1,11 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Swiper } from 'swiper/react';
 import { useEffect, useState, useRef } from 'react';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-// Removed import for navigation styles
 import { Pagination } from 'swiper/modules';
 
 export default function LandingSlider({ children }) {
@@ -50,8 +49,7 @@ export default function LandingSlider({ children }) {
           clickable: true,
           el: '.swiper-custom-pagination',
           renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + `<img src=images/photo_gallery/landing/slider-${index + 1}.webp alt="Photo Gallery Img" 
-            loading="lazy" class='h-full w-full'/>` + '</span>';
+            return '<span class="' + className + '">' + `<img src="images/photo_gallery/landing/slider-${index + 1}.webp" alt="Photo Gallery Img" loading="lazy" class="h-full w-full"/>` + '</span>';
           },
         }}
         modules={[Pagination]}
