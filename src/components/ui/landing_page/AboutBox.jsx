@@ -11,7 +11,7 @@ const AboutBox = ({ title, img, description, aos }) => {
         bg-[url("images/landing/small/${img}.png")] bg-center bg-cover object-cover
         after:absolute after:top-5 after:-bottom-5 ${title === 'AMENITIES' ? 'after:right-5 after:-left-5' : 'after:-right-5 after:left-5'} after:border after:border-black after:rounded-md after:z-10`} data-aos={aos}
       >
-        <img src={`images/landing/${img}.jpg`} alt="About Image" loading="lazy" className={`w-full h-full relative z-20 rounded-md ${imgLoaded ? 'opacity-1' : 'opacity-0'} transition-opacity duration-200`}/>
+        <img src={imgSrc} alt="About Image" loading="lazy" className={`w-full h-full relative z-20 rounded-md ${imgLoaded ? 'opacity-1' : 'opacity-0'} transition-opacity duration-200`}/>
       </div>
   
       <div className="details flex flex-col gap-3 items-center justify-center text-center basis-3/5" data-aos="slide-up" data-aos-duration="800">

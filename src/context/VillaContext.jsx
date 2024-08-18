@@ -22,6 +22,40 @@ const VillaProvider = ({ children }) => {
       room_imgs: [
         'room1', 'room2', 'room3', 'room4', 'room5', 'room6',
         'room7', 'room8', 'room9', 'room10', 'room11', 'room12'
+      ],
+      amenities_img: [
+        'amenities-1',
+        'amenities-2',
+        'amenities-3'
+      ],
+      gallery_order: [ 21, 1, 5, 11, 13, 16, 20, 4, 3, 8, 2, 14, 10, 17, 9, 12 ],
+      accommodation_rates: [
+        {
+          id: '1',
+          days: 'FRIDAY - SUNDAY & HOLIDAYS',
+          rates: [
+            { '21 HOUR RATE (7 AM TO 4 PM)': '₱28, 000' }
+          ],
+          duration: '1500'
+        },
+        {
+          id: '2',
+          days: 'MONDAY TO THURSDAY',
+          rates: [
+            { 'DAY RATE (8 AM TO 5 PM)': '₱28, 000' },
+            { 'NIGHT RATE (7 PM TO 6 AM)': '₱15, 000' },
+            { 'EXTENDED STAY (7 PM TO 4 PM)': '₱23, 000' }
+          ],
+          duration: '2000'
+        },
+        {
+          id: '3',
+          days: 'PEAK SEASONS',
+          rates: [
+            { '21 HOUR RATE (7 AM TO 4 PM)': '₱28, 000' }
+          ],
+          duration: '2500'
+        },
       ]
     }
   ]

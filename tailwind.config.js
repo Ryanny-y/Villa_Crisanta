@@ -23,6 +23,13 @@ export default {
       },
       screens: {
         'xxs': '400px'
+      },
+      flexBasis: {
+        '75': '20rem'
+      }, 
+      gridTemplateRows: {
+        'grid-lg': 'repeat(7, 240px)',
+        'grid-none': 'repeat(8, 250px)',
       }
     },
   },

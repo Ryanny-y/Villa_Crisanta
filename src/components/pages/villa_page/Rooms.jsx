@@ -1,5 +1,5 @@
 import SectionLayout from '../../layout/SectionLayout';
-import HeaderTitle from '../../common/HeaderTitle';
+import VillaHeaderTitle from '../../common/VillaHeaderTitle';
 import VillaSlider from '../../ui/villa/VillaSlider';
 import { useContext } from 'react';
 import { VillaContext } from '../../../context/VillaContext';
@@ -15,13 +15,13 @@ const Rooms = () => {
 
   return (
     <SectionLayout sectionId="rooms">
-      <HeaderTitle title="ROOMS"/>
+      <VillaHeaderTitle title="ROOMS"/>
 
       <VillaSlider>
         {villaDetails.room_imgs.map(room => (
           <swiper-slide key={room} lazy="true">
             <div className={`h-full shadow-lg w-full bg-[url("images/villa1/small/${room}.png")] bg-cover bg-center object-cover`}>
-              <img src={`images/villa1/rooms/${room}.webp`} alt="Room Image" className={`h-full shadow-lg w-full ${imgLoaded ? 'opacity-1' : 'opacity-0'} transition-opacity duration-1000`} onLoad={handleLoad}/>
+              <img src={`images/villa1/rooms/${room}.webp`} alt="Room Image" className={`h-full shadow-lg w-full ${imgLoaded ? 'opacity-1' : 'opacity-0'} transition-opacity duration-1000`} onLoad={handleLoad} loading='lazy'/>
             </div>
           </swiper-slide>
         ))}

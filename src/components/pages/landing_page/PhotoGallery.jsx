@@ -31,15 +31,8 @@ const PhotoGallery = () => {
       <LandingSlider>
         {galleryImg.map(img => (
           <SwiperSlide key={img}>
-            <div className={`bg-[url("images/photo_gallery/landing/small/${img}.png")] bg-cover bg-center object-cover h-full w-full`}>
-              <img 
-                src={`images/photo_gallery/landing/${img}.webp`} 
-                alt="Photo Gallery Img" 
-                loading="lazy"
-                className={`h-full w-full ${imgLoaded ? 'opacity-1' : 'opacity-0'} transition-opacity duration-1000`} 
-                aria-label={`Photo gallery image ${img.split('/').pop().split('-')[1]}`}
-                onLoad={handleLoad}
-              />
+            <div className={`shadow-lg bg-[url("images/photo_gallery/landing/small/${img}.png")] bg-cover bg-center object-cover w-full h-full`}>
+              <img src={`images/photo_gallery/landing/${img}.webp`} alt="Room Image" className={`h-full shadow-lg w-full ${imgLoaded ? 'opacity-1' : 'opacity-0'} transition-opacity duration-1000`} onLoad={handleLoad}/>
             </div>
           </SwiperSlide>
         ))}
