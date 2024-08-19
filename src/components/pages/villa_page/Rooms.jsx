@@ -25,7 +25,7 @@ const Rooms = () => {
               style={{ background: `url("images/villa1/small/${room}.png") no-repeat center/cover`}}
             >
 
-              <img src={`images/villa1/rooms/${room}.webp`} alt="Room Image" className={`h-full shadow-lg w-full ${imgLoaded ? 'opacity-1' : 'opacity-0'} transition-opacity duration-1000`} onLoad={handleLoad} loading='lazy'/>
+              <img src={`images/villa1/rooms/${room}.webp`} alt="Room Image" className={`h-full shadow-lg w-full ${imgLoaded ? 'opacity-1' : 'opacity-0'} transition-opacity duration-1000 object-cover`} onLoad={handleLoad} loading='lazy'/>
             </div>
           </swiper-slide>
         ))}

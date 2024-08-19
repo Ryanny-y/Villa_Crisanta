@@ -5,6 +5,7 @@ import Amenities from "./villa_page/Amenities";
 import useScrollToTop from "../../utils/hooks/useScrollToTop";
 import Accommodation from "./villa_page/Accommodation";
 import VillaPhotoGallery from "./villa_page/VillaPhotoGallery";
+import Contact from '../common/Contact'
 
 const Villa = () => {
   useScrollToTop();
@@ -17,6 +18,7 @@ const Villa = () => {
       <Amenities />
       <VillaPhotoGallery />
       <Accommodation />
+      <Contact />
     </main>
   )
 }

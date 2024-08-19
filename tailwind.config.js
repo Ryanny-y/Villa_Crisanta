@@ -30,6 +30,9 @@ export default {
       gridTemplateRows: {
         'grid-lg': 'repeat(7, 240px)',
         'grid-none': 'repeat(8, 250px)',
+      },
+      spacing: {
+        '15': '60px'
       }
     },
   },

@@ -35,7 +35,7 @@ const PhotoGallery = () => {
               className={`shadow-lg object-cover w-full h-full`}
               style={{ background: `url("images/photo_gallery/landing/small/${img}.png") no-repeat center / cover`}}
             >
-              <img src={`images/photo_gallery/landing/${img}.webp`} alt="Room Image" className={`h-full shadow-lg w-full ${imgLoaded ? 'opacity-1' : 'opacity-0'} transition-opacity duration-1000`} onLoad={handleLoad}/>
+              <img src={`images/photo_gallery/landing/${img}.webp`} alt="Room Image" className={`h-full shadow-lg w-full ${imgLoaded ? 'opacity-1' : 'opacity-0'} transition-opacity duration-1000 object-cover`} onLoad={handleLoad}/>
             </div>
           </SwiperSlide>
         ))}

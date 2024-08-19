@@ -20,7 +20,7 @@ const Header = () => {
           <ul className="font-semibold text-white flex gap-5">
             <a href='#'>HOME</a>
             <a href='#about-us'>ABOUT</a>
-            <a href=''>CONTACT</a>
+            <a href='#contact'>CONTACT</a>
           </ul>
         </nav>
       </div>

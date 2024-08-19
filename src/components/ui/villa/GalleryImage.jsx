@@ -34,7 +34,7 @@ const GalleryImage = ({ order, setShowImg }) => {
           transition-opacity duration-1000 
           h-full w-full rounded-md img 
           ${imgHovered && 'scale-110 brightness-100'} 
-          brightness-75 cursor-pointer duration-100 ease-in-out
+          brightness-75 cursor-pointer duration-100 ease-in-out object-cover
         `}
         loading='lazy'
         onMouseEnter={() => setImgHovered(true)}

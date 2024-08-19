@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 const VillaSlider = ({ children }) => {
-  const [ sliderHeight, setSliderHeight ] = useState('380px')
+  const [ sliderHeight, setSliderHeight ] = useState('500px')
 
   return (
     <div className="villa-slider w-5/6 md:w-4/5 mx-auto relative">

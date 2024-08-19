@@ -13,7 +13,7 @@ const AboutBox = ({ title, img, description, aos }) => {
         style={{ background: `url(images/landing/small/${img}.png) no-repeat center / cover`}}
         data-aos={aos}
       >
-        <img src={imgSrc} alt="About Image" loading="lazy" className={`w-full h-full relative z-20 rounded-md ${imgLoaded ? 'opacity-1' : 'opacity-0'} transition-opacity duration-1000`}/>
+        <img src={imgSrc} alt="About Image" loading="lazy" className={`w-full h-full relative z-20 rounded-md ${imgLoaded ? 'opacity-1' : 'opacity-0'} transition-opacity duration-1000 object-cover`}/>
       </div>
   
       <div className="details flex flex-col gap-3 items-center justify-center text-center basis-3/5" data-aos="slide-up" data-aos-duration="800">

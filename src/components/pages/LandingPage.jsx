@@ -4,6 +4,7 @@ import About from "./landing_page/About";
 import PhotoGallery from "./landing_page/PhotoGallery";
 import Team from "./landing_page/Team";
 import useScrollToTop from "../../utils/hooks/useScrollToTop";
+import Contact from "../common/Contact";
 
 const LandingPage = () => {
 
@@ -16,6 +17,7 @@ const LandingPage = () => {
       <About />
       <PhotoGallery />
       <Team />
+      <Contact />
     </main>
   )
 }
