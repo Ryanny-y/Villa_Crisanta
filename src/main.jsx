@@ -11,11 +11,11 @@ import Villa from './components/pages/Villa';
 register();
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/Villa_Crisanta/',
     element: <App />,
     children: [
       {
-        path: '/',
+        path: '',
         element: <LandingPage />
       },
       {

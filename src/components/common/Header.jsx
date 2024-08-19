@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <header className={headerClass}>
       <div className="container flex justify-between items-center">
-        <Link to='/' className="header-logo flex gap-2 items-center">
+        <Link to='/Villa_Crisanta/' className="header-logo flex gap-2 items-center">
           <img src="images/vclogo.png" alt="Logo" className="w-10 h-10 md:h-12 md:w-12"/>
           <h1 className="text-white text-xl sm:text-2xl md:text-3xl font-semibold tracking-wide break-word">Villa Crisanta Spring Resort</h1>
         </Link>

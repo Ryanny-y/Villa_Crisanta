@@ -11,7 +11,7 @@ const PropertyBox = ({ aos, duration, img, property }) => {
   const { setVillaDetails } = useContext(VillaContext); 
 
   return (
-    <Link to='/villa' onClick={() => {setVillaDetails(property)}} className="py-4 px-7 relative flex-grow bg-dark rounded-sm" style={{ height: '500px' }} data-aos={aos} data-aos-duration={duration}>
+    <Link to='villa' onClick={() => {setVillaDetails(property)}} className="py-4 px-7 relative flex-grow bg-dark rounded-sm" style={{ height: '500px' }} data-aos={aos} data-aos-duration={duration}>
       <div className={`bg-[url('images/landing/small/${img}.png')] bg-cover bg-center rounded-sm brightness-70 h-full w-full`}>
         <img src={imgSrc} alt="Villa Img" className={`h-full w-full ${!imgLoaded ? 'opacity-0' : 'opacity-1'} transition-opacity duration-100`}/>
       </div>
