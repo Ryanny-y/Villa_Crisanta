@@ -57,7 +57,7 @@ export default function LandingSlider({ children }) {
         style={{
           '--swiper-pagination-bottom': '-20px',
         }}
-        lazy={true}
+        lazy="true"
       >
         {children}
       </Swiper>

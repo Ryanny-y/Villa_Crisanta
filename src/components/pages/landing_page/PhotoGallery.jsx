@@ -31,7 +31,10 @@ const PhotoGallery = () => {
       <LandingSlider>
         {galleryImg.map(img => (
           <SwiperSlide key={img}>
-            <div className={`shadow-lg bg-[url("images/photo_gallery/landing/small/${img}.png")] bg-cover bg-center object-cover w-full h-full`}>
+            <div 
+              className={`shadow-lg object-cover w-full h-full`}
+              style={{ background: `url("images/photo_gallery/landing/small/${img}.png") no-repeat center / cover`}}
+            >
               <img src={`images/photo_gallery/landing/${img}.webp`} alt="Room Image" className={`h-full shadow-lg w-full ${imgLoaded ? 'opacity-1' : 'opacity-0'} transition-opacity duration-1000`} onLoad={handleLoad}/>
             </div>
           </SwiperSlide>

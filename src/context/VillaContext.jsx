@@ -28,7 +28,7 @@ const VillaProvider = ({ children }) => {
         'amenities-2',
         'amenities-3'
       ],
-      gallery_order: [ 21, 1, 5, 11, 13, 16, 20, 4, 3, 8, 2, 14, 10, 17, 9, 12 ],
+      gallery_order: [ '21', '1', '5', '11', '13', '16', '20', '4', '3', '8', '2', '14', '10', '17', '9', '12' ],
       accommodation_rates: [
         {
           id: '1',

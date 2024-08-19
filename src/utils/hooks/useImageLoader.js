@@ -6,7 +6,9 @@ const useImageLoader = (src) => {
   useEffect(() => {
     const img = new Image();
     img.src = src;
-    img.onload = () => setImgLoaded(true)
+    img.onload = () => {
+      setImgLoaded(true);
+    };
   }, [src]);
 
   return imgLoaded;
