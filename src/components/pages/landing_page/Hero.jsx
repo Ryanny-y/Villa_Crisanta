@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section id="hero"
       className='relative h-svh flex items-center justify-center
-      after:absolute after:top-0 after:h-full after:right-0 after:w-full after:bg-[url("/images/landing/hero-bg.jpg")] after:bg-cover after:bg-center after:bg-no-repeat after:brightness-70'
+      after:absolute after:top-0 after:h-full after:right-0 after:w-full after:bg-[url("./images/landing/hero-bg.jpg")] after:bg-cover after:bg-center after:bg-no-repeat after:brightness-70'
       data-aos="fade-down" data-aos-duration="800"
     >
       <div className="container relative z-10">
