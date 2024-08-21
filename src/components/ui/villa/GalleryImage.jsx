@@ -5,7 +5,6 @@ const GalleryImage = ({ order, setShowImg }) => {
   const [ imgLayout, setImgLayout ] = useState('');
   const imgSrc = `images/photo_gallery/villa1/gallery-${order}.webp`;
   const imgLoaded = useImageLoader(imgSrc);
-  const [ imgHovered, setImgHovered ] = useState(false);
 
   useEffect(() => {
     if(['1', '11', '13', '16'].includes(order)) {
@@ -31,14 +30,11 @@ const GalleryImage = ({ order, setShowImg }) => {
         alt="Gallery Img"
         className={`
           ${imgLoaded ? 'opacity-100' : 'opacity-0'}
-          transition-opacity duration-1000 
-          h-full w-full rounded-md img 
-          ${imgHovered && 'scale-110 brightness-100'} 
-          brightness-75 cursor-pointer duration-100 ease-in-out object-cover
+          transition-all duration-1000 
+          h-full w-full rounded-md img
+          brightness-75 cursor-pointer ease-in-out object-cover
         `}
         loading='lazy'
-        onMouseEnter={() => setImgHovered(true)}
-        onMouseLeave={() => setImgHovered(false)}
         onClick={() => setShowImg(order)}
       />
 

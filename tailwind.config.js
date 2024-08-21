@@ -8,7 +8,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'poppins': ['Poppins', 'Arial', 'sans-serif']
+        'poppins': ['Poppins', 'Arial', 'sans-serif'],
+        'cursive': ['Grey Qo', 'cursive']
       },
       backgroundImage: {
         'hero-bg': "url('images/landing/hero-bg.jpg')"

@@ -32,4 +32,12 @@ body, html {
   border-radius: 0 !important;
 }
 
-/* Gallery Container */
+/* BOOKING */
+.booking-form input, .booking-form textarea, .booking-form select {
+  outline: none;
+  border-radius: 3px;
+}
+
+.booking-form input:focus, .booking-form textarea:focus, .booking-form select:focus {
+  outline: .5px solid #5e5e5e;
+}

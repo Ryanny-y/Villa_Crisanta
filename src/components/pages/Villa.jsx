@@ -6,6 +6,7 @@ import useScrollToTop from "../../utils/hooks/useScrollToTop";
 import Accommodation from "./villa_page/Accommodation";
 import VillaPhotoGallery from "./villa_page/VillaPhotoGallery";
 import Contact from '../common/Contact'
+import Booking from "../common/Booking";
 
 const Villa = () => {
   useScrollToTop();

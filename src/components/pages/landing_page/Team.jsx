@@ -45,7 +45,7 @@ const Team = () => {
     <SectionLayout sectionId='team'>
       <HeaderTitle title="Our Team"/>  
     
-      <div className="flex flex-wrap gap-10 justify-center w-10/12 mx-auto">
+      <div className="flex flex-wrap gap-10 justify-center">
         {teamMembers.map(member => (
           <TeamCard key={member.name} team={member}/>
         ))}

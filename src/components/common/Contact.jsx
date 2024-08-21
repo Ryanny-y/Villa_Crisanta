@@ -71,7 +71,7 @@ const Contact = () => {
           <a href="tel:09508394289">Contact No#: +63 9508394289</a>
         </div>
         <div className="socials flex flex-col gap-2 flex-1 basis-60 max-w-80">
-          <h1 className='text-3xl mb-4'>Socialk</h1>
+          <h1 className='text-3xl mb-4'>Socials</h1>
           <a href="" target="_blank" className='flex items-center justify-center gap-2'>
             <FontAwesomeIcon icon={faEnvelope}/>
             villacrisantalaguna@gmail.com

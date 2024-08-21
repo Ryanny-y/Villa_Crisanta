@@ -21,11 +21,12 @@ const Rooms = () => {
         {villaDetails.room_imgs.map(room => (
           <swiper-slide key={room} lazy="true">
             <div 
-              className={`h-full shadow-lg w-full object-cover`}
-              style={{ background: `url("images/villa1/small/${room}.png") no-repeat center/cover`}}
+              className={`h-full shadow-lg w-full`}
+              style={{ background: `url("images/villa1/small/${room}.png") no-repeat center/cover`, objectFit: 'cover'}}
             >
-
-              <img src={`images/villa1/rooms/${room}.webp`} alt="Room Image" className={`h-full shadow-lg w-full ${imgLoaded ? 'opacity-1' : 'opacity-0'} transition-opacity duration-1000 object-cover`} onLoad={handleLoad} loading='lazy'/>
+              
+              <img src={`images/villa1/rooms/${room}.webp`} alt="Room Image" className={`h-full shadow-lg w-full ${imgLoaded ? 'opacity-1' : 'opacity-0'} transition-opacity duration-1000 object-cover`} onLoad={handleLoad} loading='lazy' 
+              data-aos={imgLoaded && 'fade'}/>
             </div>
           </swiper-slide>
         ))}
