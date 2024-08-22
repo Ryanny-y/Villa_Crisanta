@@ -7,11 +7,17 @@ const VillaHero = () => {
   return (
     <section
       id="hero"
-      className={`relative h-svh flex items-center justify-center
-      after:absolute after:top-0 after:h-full after:right-0 after:w-full after:bg-[url("./images/landing/${villaDetails.background_img}.webp")] after:bg-cover after:bg-center after:bg-no-repeat after:brightness-50`}
+      className='relative h-svh flex items-center justify-center'
       data-aos="fade-down"
       data-aos-duration="800"
     >
+      <div className="bg-image absolute top-0 left-0 bottom-0 right-0"
+        style={{
+          background: `url("images/${villaDetails.path}/${villaDetails.background_img}.webp") no-repeat center / cover`,
+          filter: 'brightness(50%)'
+        }}>
+      </div>
+
       <div className="container relative z-10">
         <div className="hero-title flex flex-col items-center justify-center gap-5 text-white text-center">
           <p className="font-sm font-bold">Welcome to</p>
