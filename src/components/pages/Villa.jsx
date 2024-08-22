@@ -5,7 +5,7 @@ import Amenities from "./villa_page/Amenities";
 import useScrollToTop from "../../utils/hooks/useScrollToTop";
 import Accommodation from "./villa_page/Accommodation";
 import VillaPhotoGallery from "./villa_page/VillaPhotoGallery";
-import Contact from '../common/Contact'
+import Contact from "../common/Contact";
 import Booking from "../common/Booking";
 
 const Villa = () => {
@@ -19,9 +19,10 @@ const Villa = () => {
       <Amenities />
       <VillaPhotoGallery />
       <Accommodation />
+      <Booking />
       <Contact />
     </main>
-  )
-}
+  );
+};
 
-export default Villa
+export default Villa;
