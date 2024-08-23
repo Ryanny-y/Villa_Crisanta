@@ -7,6 +7,7 @@ import Accommodation from "./villa_page/Accommodation";
 import VillaPhotoGallery from "./villa_page/VillaPhotoGallery";
 import Contact from "../common/Contact";
 import Booking from "../common/Booking";
+import VideoContainer from "../common/VideoContainer";
 
 const Villa = () => {
   useScrollToTop();
@@ -14,6 +15,7 @@ const Villa = () => {
   return (
     <main className="landing-page flex flex-col">
       <VillaHero />
+      <VideoContainer />
       <VillaAbout />
       <Rooms />
       <Amenities />

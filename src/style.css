@@ -41,3 +41,31 @@ body, html {
 .booking-form input:focus, .booking-form textarea:focus, .booking-form select:focus {
   outline: .5px solid #5e5e5e;
 }
+
+
+/* booking */
+.rbc-event {
+  @apply bg-yellow-600 text-white rounded-lg h-full !important;
+}
+
+.rbc-off-range-bg {
+  @apply bg-gray-200 !important;
+}
+
+.rbc-day-bg:hover {
+  @apply bg-yellow-100 !important;
+  cursor: pointer
+}
+
+.rbc-today {
+  @apply bg-yellow-100 !important;
+}
+
+.highlighted-day {
+  @apply bg-gray-200;
+}
+
+.rbc-day-bg.highlighted-day:hover {
+  @apply bg-gray-200 !important;
+  cursor: auto;
+}

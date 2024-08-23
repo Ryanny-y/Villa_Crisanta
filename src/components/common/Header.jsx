@@ -13,14 +13,14 @@ const Header = () => {
       <div className="container flex justify-between items-center">
         <Link to='/Villa_Crisanta/' className="header-logo flex gap-2 items-center">
           <img src="images/vclogo.png" alt="Logo" className="w-10 h-10 md:h-12 md:w-12"/>
-          <h1 className="text-white text-xl sm:text-2xl md:text-3xl font-semibold tracking-wide break-word">Villa Crisanta Spring Resort</h1>
+          <h1 className="text-white text-xl sm:text-2xl md:text-3xl font-semibold tracking-wide break-word hover:text-yellow-500 duration-200">Villa Crisanta Spring Resort</h1>
         </Link>
         
         <nav className="nav hidden md:block">
           <ul className="font-semibold text-white flex gap-5">
-            <a href='#'>HOME</a>
-            <a href='#about-us'>ABOUT</a>
-            <a href='#contact'>CONTACT</a>
+            <a className="hover:text-yellow-500 duration-200" href='#'>HOME</a>
+            <a className="hover:text-yellow-500 duration-200" href='#about-us'>ABOUT</a>
+            <a className="hover:text-yellow-500 duration-200" href='#contact'>CONTACT</a>
           </ul>
         </nav>
       </div>
