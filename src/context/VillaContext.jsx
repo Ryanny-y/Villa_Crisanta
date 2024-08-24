@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const VillaContext = createContext();
 
@@ -176,7 +176,9 @@ const VillaProvider = ({ children }) => {
     villaData,
   };
   return (
-    <VillaContext.Provider value={value}>{children}</VillaContext.Provider>
+    <VillaContext.Provider value={value}>
+      {children}
+    </VillaContext.Provider>
   );
 };
 

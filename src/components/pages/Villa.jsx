@@ -8,9 +8,11 @@ import VillaPhotoGallery from "./villa_page/VillaPhotoGallery";
 import Contact from "../common/Contact";
 import Booking from "../common/Booking";
 import VideoContainer from "../common/VideoContainer";
+import useShowLoading from '../../utils/hooks/useShowLoading';
 
 const Villa = () => {
   useScrollToTop();
+  useShowLoading();
 
   return (
     <main className="landing-page flex flex-col">
