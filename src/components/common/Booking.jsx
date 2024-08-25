@@ -150,15 +150,15 @@ const Booking = () => {
         {/* DATE AND GUESTS */}
         <div className="date-guests flex flex-col md:flex-row gap-3">
           <label htmlFor="reservation-date" className='relative text-xs sm:text-base border shadow-md flex-grow flex-1'>
-            <input
+            {/* <input
               type="date" 
               value={fields.reservationDate}
               onChange={(e) => valueSetter(e, 'reservationDate')}
               required 
               id='reservation-date' 
               className='p-3 px-4 w-full'
-            />
-            {/* <MyCalendar setFields={setFields}/> */}
+            /> */}
+            <MyCalendar setFields={setFields}/>
           </label>
           <label htmlFor="number-of-guests" className='relative text-xs sm:text-base border shadow-md flex-grow flex-1'>
             <input 

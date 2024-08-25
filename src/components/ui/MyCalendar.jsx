@@ -2,12 +2,38 @@ import { Calendar, dayjsLocalizer } from 'react-big-calendar';
 import dayjs from 'dayjs';
 import { useState, useEffect } from 'react';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-// import './custom-calendar-styles.css';
+import useGetBookings from '../../utils/hooks/useGetBookings';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
 
 const localizer = dayjsLocalizer(dayjs);
 
+dayjs.extend(utc)
+dayjs.extend(timezone)
+// plugins
 const MyCalendar = ({ setFields }) => {
-  const [events, setEvents] = useState([]);
+
+  const [ events, setEvents] = useState([]);
+
+  const { reservationData, isLoading, error } = useGetBookings();
+
+  useEffect(() => {
+    if(reservationData.length || !isLoading, !error) {
+      const reservations = reservationData.map(reservation => {
+        const localStartDate = dayjs(reservation.reservation_date.start).local().toDate();
+        const localEndDate = dayjs(reservation.reservation_date.end).local().add(1, 'day').toDate();
+
+        return {
+          title: 'Reserved',
+          start: localStartDate,
+          end: localEndDate,
+          allDay: true
+        };
+      });
+      
+      setEvents(reservations)
+    }
+  }, [reservationData, isLoading, error])
   
   const dayPropGetter = (date) => {
     const today = dayjs().startOf('day');
@@ -45,6 +71,7 @@ const MyCalendar = ({ setFields }) => {
       ...prev,
       reservationDate: { start, end }
     }));
+
     
     setEvents([...events, { start, end, title: 'Preferred Date', allDay: true}]);
   };

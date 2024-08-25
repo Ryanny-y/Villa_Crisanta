@@ -7,6 +7,7 @@ import './style.css'
 import App from './App'
 import LandingPage from './components/pages/LandingPage';
 import Villa from './components/pages/Villa';
+import Admin from './components/pages/Admin'
 
 register();
 const router = createBrowserRouter([
@@ -23,11 +24,15 @@ const router = createBrowserRouter([
         element: <Villa />
       }
     ]
+  },
+  {
+    path: '/Villa_Crisanta/admin',
+    element: <Admin />
   }
 ])
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
     <RouterProvider router={router}/>
-  </StrictMode>,
+  // </StrictMode>,
 )

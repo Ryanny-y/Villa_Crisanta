@@ -73,12 +73,16 @@ body, html {
 
 
 /* booking */
+.rbc-day {
+  @apply bg-blue-200 !important;
+}
+
 .rbc-event {
   @apply bg-yellow-600 text-white rounded-lg h-full !important;
 }
 
 .rbc-off-range-bg {
-  @apply bg-gray-200 !important;
+  @apply bg-gray-300 !important;
 }
 
 .rbc-day-bg:hover {
@@ -91,10 +95,10 @@ body, html {
 }
 
 .highlighted-day {
-  @apply bg-gray-200;
+  @apply bg-gray-400;
 }
 
 .rbc-day-bg.highlighted-day:hover {
-  @apply bg-gray-200 !important;
+  @apply bg-gray-400 !important;
   cursor: auto;
 }
