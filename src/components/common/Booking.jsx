@@ -2,8 +2,14 @@ import SectionLayout from '../layout/SectionLayout';
 import VillaHeaderTitle from '../common/VillaHeaderTitle';
 import { useState } from 'react';
 import MyCalendar from '../ui/MyCalendar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
+import dayjs from 'dayjs';
 
 const Booking = () => {
+  const [ showCalendar, setShowCalendar ] = useState(false);
+  const [ cleared, setCleared ] = useState(false);
+
   const [fields, setFields] = useState({
     chooseVilla: '',
     firstname: '',
@@ -12,7 +18,7 @@ const Booking = () => {
     email: '',
     contactNumber: '',
     altContactNumber: '',
-    reservationDate: '',
+    reservationDate: {},
     guestsNumber: '',
     timeIn: '',
     numberOfRooms: ''
@@ -25,6 +31,7 @@ const Booking = () => {
     email: 'top-3 left-5',
     contactNumber: 'top-3 left-5',
     altContactNumber: 'top-3 left-5',
+    reservationDate: 'top-3 left-5',
     guestsNumber: 'top-3 left-5',
     numberOfRooms: 'top-3 left-5',
   });
@@ -42,6 +49,37 @@ const Booking = () => {
     }));
   };
 
+  const clearFields = () => {
+    setFields({
+      chooseVilla: '',
+      firstname: '',
+      lastname: '',
+      address: '',
+      email: '',
+      contactNumber: '',
+      altContactNumber: '',
+      reservationDate: {},
+      guestsNumber: '',
+      timeIn: '',
+      numberOfRooms: ''
+    });
+    
+    setSpanClasses({
+      firstname: 'top-3 left-5',
+      lastname: 'top-3 left-5',
+      address: 'top-3 left-5',
+      email: 'top-3 left-5',
+      contactNumber: 'top-3 left-5',
+      altContactNumber: 'top-3 left-5',
+      reservationDate: 'top-3 left-5',
+      guestsNumber: 'top-3 left-5',
+      numberOfRooms: 'top-3 left-5',
+    });
+
+    setShowCalendar(false);
+    setCleared(p => !p);
+  }
+
   return (
     <SectionLayout sectionId='book'>
       <VillaHeaderTitle title="Book Your Dream Stay" fs="cursive"/>
@@ -58,7 +96,8 @@ const Booking = () => {
         <label htmlFor="choose-villa" className='flex-grow relative text-xs sm:text-base border shadow-md'>
           <select 
             name="choose-villa" 
-            required defaultValue={fields.chooseVilla} 
+            required 
+            value={fields.chooseVilla}
             id="choose-villa"
             className=' w-full px-4 py-3'
             onChange={(e) => valueSetter(e, 'chooseVilla')}
@@ -150,15 +189,21 @@ const Booking = () => {
         {/* DATE AND GUESTS */}
         <div className="date-guests flex flex-col md:flex-row gap-3">
           <label htmlFor="reservation-date" className='relative text-xs sm:text-base border shadow-md flex-grow flex-1'>
-            {/* <input
-              type="date" 
-              value={fields.reservationDate}
-              onChange={(e) => valueSetter(e, 'reservationDate')}
-              required 
-              id='reservation-date' 
-              className='p-3 px-4 w-full'
-            /> */}
-            <MyCalendar setFields={setFields}/>
+            <input type="text" className='py-3 px-4' disabled onClick={() => setShowCalendar(true)}/>
+
+            <MyCalendar cleared={cleared} setFields={setFields} showCalendar={showCalendar} setShowCalendar={setShowCalendar}/>
+
+            <span className={`flex items-center justify-between right-5 absolute duration-200 bg-light ${spanClasses.reservationDate}`} onClick={() => setShowCalendar(true)}>
+              { !Object.keys(fields.reservationDate).length 
+                ? <p>Reservation Date</p>
+                : <div className='flex items-center gap-3'>
+                    <p>{dayjs(fields.reservationDate.start).format('ddd-MMM/DD/YY')}</p>
+                    <p>-</p>
+                    <p>{dayjs(fields.reservationDate.end).format('ddd-MMM/DD/YY')}</p>
+                  </div>
+              }
+              <span><FontAwesomeIcon icon={faCalendarDays} className='text-dark text-base md:text-xl hover:text-yellow-600 duration-200'/></span>
+            </span>
           </label>
           <label htmlFor="number-of-guests" className='relative text-xs sm:text-base border shadow-md flex-grow flex-1'>
             <input 
@@ -187,7 +232,9 @@ const Booking = () => {
           </label>
           <label htmlFor="number-of-rooms" className='relative text-xs sm:text-base border shadow-md flex-grow flex-1'>
             <input 
-              type="text" 
+              type="number" 
+              min={0}
+              max={8}
               value={fields.numberOfRooms}
               onChange={(e) => valueSetter(e, 'numberOfRooms')}
               required 
@@ -199,7 +246,10 @@ const Booking = () => {
         </div>
 
         {/* Submit Button */}
-        <button className="submit bg-yellow-600 text-white font-semibold py-4 rounded-sm hover:bg-yellow-500 duration-200">Submit</button>
+        <button type='submit' className="submit bg-yellow-600 text-white font-semibold py-4 rounded-sm hover:bg-yellow-500 duration-200">Submit</button>
+
+        {/* Clear fields */}
+        <button className="clear_field px-7 py-2 self-end block bg-gray-300 text-black hover:bg-gray-500 hover:text-white duration-200" type='button' onClick={clearFields}>Clear Form</button>
       </form>
     </SectionLayout>
   );
