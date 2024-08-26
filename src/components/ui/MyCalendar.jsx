@@ -98,15 +98,23 @@ const MyCalendar = ({ cleared, setFields, showCalendar, setShowCalendar }) => {
       return;
     }
     
-    // SET THE FIELDS AT THE FORM INPUT
-    setFields((prev) => ({
-      ...prev,
-      reservationDate: { start, end }
-    }));
-
     // SET THE EVENTS
-    setEvents([...events, { start, end, title: 'Preferred Date', allDay: true}]);
-
+    setEvents(prevEvent => {
+      const newEvents = [...prevEvent, { start, end, title: 'Preferred Date', allDay: true}];
+      
+      const preferredStartDate = newEvents.filter(event => event.title === 'Preferred Date');
+      const startDate = preferredStartDate.sort((a, b) => dayjs(a.start).isBefore(dayjs(b.start)) ? -1 : 1)[0].start;
+      const endDate = dayjs(preferredStartDate.sort((a, b) => dayjs(a.end).isBefore(dayjs(b.end)) ? 1 : -1)[0].end).subtract(1, 'day').toDate();
+      
+      setFields((prev) => ({
+        ...prev,
+        reservationDate: { start: startDate, end: endDate}
+      }))
+      
+      return [...prevEvent, { start: startDate, end, title: 'Preferred Date', allDay: true}];
+    });
+    
+    
   };
 
   return (
