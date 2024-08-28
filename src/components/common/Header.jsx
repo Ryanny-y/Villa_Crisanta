@@ -4,7 +4,7 @@ import useChangeHeaderBg from '../../utils/hooks/useChangeHeaderBg'
 
 const Header = () => {
 
-  const [ headerClass, setHeaderClass ] = useState('fixed top-0 left-0 right-0 bg-transparent text-white font-poppins py-3 z-40 duration-500');
+  const [ headerClass, setHeaderClass ] = useState(`fixed top-0 left-0 right-0 bg-transparent text-white font-poppins py-3 z-40 duration-500`);
 
   useChangeHeaderBg(setHeaderClass);
 

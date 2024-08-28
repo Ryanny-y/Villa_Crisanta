@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 import Login from "../auth/Login";
-import { useRef } from "react";
 
 const Booking = () => {
   const [ showCalendar, setShowCalendar ] = useState(false);
@@ -94,6 +93,7 @@ const Booking = () => {
           onSubmit={(e) => {
             e.preventDefault();
             console.log(fields);
+            clearFields();
           }}
           className="booking-form flex flex-col gap-3"
         >
