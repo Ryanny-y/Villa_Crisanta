@@ -1,11 +1,12 @@
 import SectionLayout from "../layout/SectionLayout";
 import VillaHeaderTitle from "../common/VillaHeaderTitle";
-import { useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import MyCalendar from "../ui/MyCalendar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 import Login from "../auth/Login";
+import { useRef } from "react";
 
 const Booking = () => {
   const [ showCalendar, setShowCalendar ] = useState(false);
@@ -81,11 +82,12 @@ const Booking = () => {
     setCleared((p) => !p);
   };
 
+
   return (
     <SectionLayout sectionId="book">
       <VillaHeaderTitle title="Book Your Dream Stay" fs="cursive" />
 
-      <div className="w-10/12 mx-auto p-5 relative">
+      <div className="w-10/12 mx-auto p-5 relative" id="book">
         <Login />
 
         <form

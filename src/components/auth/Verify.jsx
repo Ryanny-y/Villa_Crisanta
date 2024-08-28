@@ -1,6 +1,7 @@
 import { useEffect, useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate, useParams } from 'react-router-dom';
+import Booking from "../common/Booking";
 
 const Verify = () => {
   const { verified, setVerified } = useContext(AuthContext);
@@ -8,13 +9,15 @@ const Verify = () => {
   const { token } = useParams();
   const [ verificationMsg, setVerificationMsg ] = useState('Verifying...')
 
-  console.log(verified);
-
   useEffect(() => {
     const controller = new AbortController();
-    const redirect = () => {
+    const redirect = (verified = false) => {
       setTimeout(() => {
-        navigate('/Villa_Crisanta/');
+        if(verified) {
+          navigate('/Villa_Crisanta/#book');
+        } else {
+          navigate('/Villa_Crisanta/');
+        }
       }, 5000);
     }
 
@@ -34,7 +37,7 @@ const Verify = () => {
            if(verified) {
             setVerified(true);
             setVerificationMsg('Verification Successful! Redirecting...');
-            redirect()
+            redirect(true)
            } else {
             setVerified(false);
             setVerificationMsg('Verification Failed. Redirecting...');
