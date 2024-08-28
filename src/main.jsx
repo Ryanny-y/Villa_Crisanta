@@ -8,6 +8,7 @@ import App from './App'
 import LandingPage from './components/pages/LandingPage';
 import Villa from './components/pages/Villa';
 import Admin from './components/pages/Admin'
+import Verify from './components/auth/Verify';
 
 register();
 const router = createBrowserRouter([
@@ -20,9 +21,13 @@ const router = createBrowserRouter([
         element: <LandingPage />
       },
       {
+        path: ':token',
+        element: <Verify />
+      },
+      {
         path: 'villa',
         element: <Villa />
-      }
+      },
     ]
   },
   {

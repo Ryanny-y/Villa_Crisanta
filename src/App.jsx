@@ -2,6 +2,7 @@ import Layout from "./components/layout/Layout";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
+import AuthProvider from "./context/AuthContext";
 
 export default function App() {
 
@@ -12,6 +13,8 @@ export default function App() {
   }, []);
   
   return (
-    <Layout />
+    <AuthProvider>
+      <Layout />
+    </AuthProvider>
   )
 }
