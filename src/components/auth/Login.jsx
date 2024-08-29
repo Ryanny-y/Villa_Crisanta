@@ -44,7 +44,7 @@ const Login = () => {
   return (
     <>
       {!verified && (
-        <div className="flex items-center justify-center absolute bg-gray-900 opacity-80 top-0 bottom-0 left-0 right-0 z-20 text-white">
+        <div className="flex items-center justify-center absolute bg-gray-900 rounded-lg opacity-80 top-0 bottom-0 left-0 right-0 z-20 text-white">
           <form
             className='flex flex-col gap-5 justify-center text-center'
             onSubmit={handleSendGmail}
