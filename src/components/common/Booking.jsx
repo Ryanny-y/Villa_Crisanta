@@ -10,6 +10,7 @@ import Login from "../auth/Login";
 const Booking = () => {
   const [ showCalendar, setShowCalendar ] = useState(false);
   const [ cleared, setCleared ] = useState(false);
+  const [ submitMsg, setSubmitMsg ] = useState('')
 
   const [ fields, setFields ] = useState({
     chooseVilla: "",
@@ -81,6 +82,67 @@ const Booking = () => {
     setCleared((p) => !p);
   };
 
+  const submitBooking = async (e) => {
+    e.preventDefault();
+  
+    try {
+      if(!fields.chooseVilla || !fields.firstname || !fields.lastname || !fields.address || !fields.email || !fields.contactNumber || !fields.altContactNumber || !fields.guestsNumber || !fields.timeIn || !fields.numberOfRooms ) {
+        throw new Error('All Fields Are Required!');
+      }
+  
+      if(!Object.keys(fields.reservationDate).length) {
+        throw new Error('Please choose your preferred reservation date.');
+      }
+  
+      if(fields.contactNumber.length < 11 || fields.altContactNumber < 11) {
+        throw new Error('Invalid Contact Number Or Alternative Contact Number');
+      }
+
+      const response = await fetch('http://localhost:3500/booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          villa_resort: fields.chooseVilla,
+          first_name: fields.firstname,
+          last_name: fields.lastname,
+          address: fields.address,
+          email: fields.email,
+          contact_number: fields.contactNumber,
+          alt_contact_number: fields.altContactNumber,
+          reservation_date: {
+            start: fields.reservationDate.start,
+            end: fields.reservationDate.end
+          },
+          time_in: fields.timeIn,
+          number_of_guests: parseInt(fields.guestsNumber, 10),
+          number_of_rooms: parseInt(fields.numberOfRooms, 10)
+        })
+      })
+
+      if(!response.ok) {
+        const errData = await response.json();
+        const errMsg = errData.message || errorData.statusText;
+        throw new Error(errMsg);
+      }  
+      
+      await response.json();
+      setSubmitMsg('Reservation Confirmed. Please wait for the response.');
+      setTimeout(() => {
+        setSubmitMsg('');
+      }, 2000);
+      clearFields();
+
+    } catch (error) {
+      setSubmitMsg(error.message);
+      setTimeout(() => {
+        setSubmitMsg('');
+      }, 2000);
+
+    } 
+  
+  }
 
   return (
     <SectionLayout sectionId="book">
@@ -90,12 +152,8 @@ const Booking = () => {
         <Login />
 
         <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            console.log(fields);
-            clearFields();
-          }}
-          className="booking-form flex flex-col gap-3"
+          onSubmit={submitBooking}
+          className="booking-form flex flex-col gap-3 relative"
         >
           {/* CHOSEN VILLA */}
           <label
@@ -360,6 +418,11 @@ const Booking = () => {
           >
             Clear Form
           </button>
+
+          {submitMsg && 
+            <div className="absolute p-5 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 bg-yellow-600 text-white font-semibold roundded-md shadow-xl z-10 rounded-md text-center">
+            {submitMsg}
+          </div>}
         </form>
       </div>
     </SectionLayout>
