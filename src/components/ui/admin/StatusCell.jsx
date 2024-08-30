@@ -1,10 +1,9 @@
-import { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { useContext } from "react";
+import { BookingContext } from "../../../context/BookingContext";
 
 const StatusCell = ({ status }) => {
   const statusColor = status === 'Active' ? 'bg-green-600' : status === 'Pending' ? 'bg-orange-600' : 'bg-red-600';
-  const [ isEditing, setIsEditing ] = useState(true);
+  const { isEditing } = useContext(BookingContext);
 
   return (
     <td className='py-3 px-4 flex items-center gap-2'>

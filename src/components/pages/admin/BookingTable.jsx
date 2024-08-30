@@ -1,6 +1,10 @@
 import TableRow from "../../ui/admin/TableRow";
+import { useContext } from "react";
+import { BookingContext } from '../../../context/BookingContext';
 
 const BookingTable = () => {
+  const { bookingData } = useContext(BookingContext);
+
   return (
     <main className="px-5 overflow-x-auto" id="booking_table">
       <table className="booking_table w-full border-spacing-y-3 border-separate text-nowrap">
@@ -16,12 +20,9 @@ const BookingTable = () => {
         </thead>
 
         <tbody className="text-xs md:text-base font-medium text-nowrap">
-        <TableRow data={{ id: 1, villa: 'Villa Crisanta 1', name: 'Ryanny M. Romero', date: '8/12/24 - 8/20/24', contact: '09999999', status: 'Active' }}/>
-
-        <TableRow data={{ id: 1, villa: 'Villa Crisanta 1', name: 'Ryanny M. Romero', date: '8/12/24 - 8/20/24', contact: '09999999', status: 'Cancelled' }}/>
-
-          {/* <TableRow /> */}
-          {/* <TableRow /> */}
+          {bookingData.map(data => 
+            <TableRow key={data._id} data={data}/>
+          )}
         </tbody>
       </table>
     </main>

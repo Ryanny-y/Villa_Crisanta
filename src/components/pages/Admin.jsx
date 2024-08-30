@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Admin_Header from "./admin/Admin_Header";
 import Admin_SideNav from "./admin/Admin_SideNav";
 import FilterPanel from "./admin/FilterPanel";
 import BookingTable from "./admin/BookingTable";
+import AdminProvider from "../../context/AdminContext";
+import BookingProvider from "../../context/BookingContext";
 
 const Admin = () => {
   const [ sideNavWidth, setSideNavWidth ] = useState('11rem');
@@ -34,16 +36,20 @@ const Admin = () => {
   }
 
   return (
-    <div className="bg-light relative flex justify-end items-start font-poppins">
-      {/* Sidenav Here */}
-      <Admin_SideNav sideNavWidth={sideNavWidth} toggleSideNav={toggleSideNav}/>
+    <AdminProvider>
+      <BookingProvider>
+        <div className="bg-light relative flex justify-end items-start font-poppins">
+          {/* Sidenav Here */}
+          <Admin_SideNav sideNavWidth={sideNavWidth} toggleSideNav={toggleSideNav}/>
 
-      <main className="duration-200" style={{ width: `calc(100% - ${sideNavWidth})`}}>
-        <Admin_Header />
-        <FilterPanel />
-        <BookingTable />
-      </main>
-    </div>
+          <main className="duration-200" style={{ width: `calc(100% - ${sideNavWidth})`}}>
+            <Admin_Header />
+            <FilterPanel />
+            <BookingTable />
+          </main>
+        </div>
+      </BookingProvider>
+    </AdminProvider>
   );
 };
 
