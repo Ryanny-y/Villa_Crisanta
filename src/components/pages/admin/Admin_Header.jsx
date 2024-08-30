@@ -4,7 +4,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 const Admin_Header = () => {
   return (
     <header className="px-5 xl:px-10 2xl:px-14 flex items-center py-3 gap-2 border-b border-gray-400 flex-wrap">
-      <div className="left-side flex-grow flex items-center gap-2 flex-wrap">
+      <div className="left-side flex-grow flex items-center gap-2 sm:gap-5 flex-wrap">
         <h1 className="text-2xl font-semibold">Bookings</h1>
 
         <div className="flex items-center gap-2 py-1 px-5 bg-yellow-600 rounded-md text-light text-nowrap">

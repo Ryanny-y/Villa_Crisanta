@@ -4,7 +4,7 @@ import FilterBtn from "../../ui/admin/FilterBtn";
 import { useState } from "react";
 
 const FilterPanel = () => {
-  const [ toggleFilter, setToggleFilter ] = useState(false);
+  const [ showFilter, setShowFilter ] = useState(false);
 
   return ( 
     <section className="px-5 py-2 flex md:items-center gap-6 items-stretch text-dark text-nowrap justify-between">
@@ -16,11 +16,16 @@ const FilterPanel = () => {
         <FilterBtn name='Select Date Range' icon={<i className='bx bx-calendar text-sm'></i>}/>
       </div>
 
-      <div className="block md:hidden items-stretch gap-6 relative">
-        <button className="flex items-center gap-3 border border-primaryGray rounded-md px-3 py-1 hover:bg-yellow-600 hover:text-white duration-200 text-xs">Filter <i className='bx bx-filter text-sm'></i></button>
+      <div className="flex md:hidden items-stretch gap-6 relative">
+        <button 
+          className="flex items-center gap-3 border border-primaryGray rounded-md px-3 py-1 hover:bg-yellow-600 hover:text-white duration-200 text-xs"
+          onClick={() => setShowFilter(prev => !prev)}
+        >
+          Filter <i className='bx bx-filter text-sm'></i>
+        </button>
 
-        { toggleFilter &&
-          <div>
+        {showFilter &&
+          <div className="absolute top-8 z-20 bg-light flex flex-col gap-2 p-2 right-0">
             <FilterBtn name='Sort By Date' icon={<FontAwesomeIcon icon={faSort} className="text-sm"/>}/>
             <FilterBtn name='Sort By Name' icon={<FontAwesomeIcon icon={faSort} className="text-sm"/>}/>
             <FilterBtn name='Select Date Range' icon={<i className='bx bx-calendar text-sm'></i>}/>
@@ -29,8 +34,6 @@ const FilterPanel = () => {
         
         
       </div>
-      
-
     </section>
   )
 };
