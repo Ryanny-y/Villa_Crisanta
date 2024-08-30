@@ -21,6 +21,7 @@ const Header = () => {
             <a className="hover:text-yellow-500 duration-200" href='#'>HOME</a>
             <a className="hover:text-yellow-500 duration-200" href='#about-us'>ABOUT</a>
             <a className="hover:text-yellow-500 duration-200" href='#contact'>CONTACT</a>
+            <a className="hover:text-yellow-500 duration-200" href='#book'>BOOK NOW</a>
           </ul>
         </nav>
       </div>
