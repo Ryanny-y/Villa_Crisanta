@@ -26,8 +26,6 @@ const Header = () => {
             <a className="hover:text-yellow-500 duration-200" href='#about-us'>ABOUT</a>
             <a className="hover:text-yellow-500 duration-200" href='#contact'>CONTACT</a>
             <a className="hover:text-yellow-500 duration-200" href='#book'>BOOK NOW</a>
-<<<<<<< HEAD
-=======
           </ul>
         </nav>
 
@@ -41,7 +39,6 @@ const Header = () => {
             <a className="hover:text-yellow-500 duration-200" href='#about-us'>ABOUT</a>
             <a className="hover:text-yellow-500 duration-200" href='#contact'>CONTACT</a>
             <a className="hover:text-yellow-500 duration-200" href='#book'>BOOK NOW</a>
->>>>>>> c676736dbf09e2792a8e75a596f1096f8ddf2dbb
           </ul>
         </nav>
       </div>

@@ -1,14 +1,18 @@
 import TableCell from './TableCell';
+import ActionsCell from './ActionsCell';
+import StatusCell from './StatusCell';
 
-const TableRow = () => {
+const TableRow = ({ data }) => {
+  const { id, villa, name, date, contact, status } = data;
+
   return (
     <tr>
-        <TableCell content={'Villa Crisanta 1'}/>
-        <TableCell content={'Ryanny M. Romero'}/>
-        <TableCell content={'8/16/24 - 8/18/24'}/>
-        <TableCell content={'0999301031'}/>
-        <TableCell content={'Active'}/>
-        <TableCell content={'Delete'}/>
+        <TableCell>{villa}</TableCell>
+        <TableCell>{name}</TableCell>
+        <TableCell>{date}</TableCell>
+        <TableCell>{contact}</TableCell>
+        <StatusCell status={status}/>
+        <ActionsCell />
     </tr>
   ) 
 }
