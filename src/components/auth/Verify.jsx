@@ -1,10 +1,9 @@
 import { useEffect, useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate, useParams } from 'react-router-dom';
-import Booking from "../common/Booking";
 
 const Verify = () => {
-  const { verified, setVerified } = useContext(AuthContext);
+  const { setVerified } = useContext(AuthContext);
   const navigate = useNavigate();
   const { token } = useParams();
   const [ verificationMsg, setVerificationMsg ] = useState('Verifying...')
@@ -26,7 +25,7 @@ const Verify = () => {
         try {
           const response = await fetch(`http://localhost:3500/verifyGmail/${token}`, { signal: controller.signal });
           
-          if(!response.ok) {
+          if(!response.ok ) {
             const errData = await response.json();
             const errMsg = errData.message || errData.statusText;
             throw new Error(errMsg);
@@ -46,7 +45,7 @@ const Verify = () => {
           
         } catch (error) {
           setVerified(false);
-          setVerificationMsg('Verification Token Expires. Redirecting...');
+          setVerificationMsg('Verification Failed. . Redirecting...');
           redirect();
         }
       } else {
