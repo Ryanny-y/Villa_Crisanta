@@ -43,7 +43,7 @@ const FilterPanel = () => {
           name='All'
           icon={<FontAwesomeIcon icon={faChevronDown} className="text-sm"/>} 
           onClick={() => {
-            filterByResort('');
+            filterByResort('')
             setShowVillaFilter(p => !p)
           }}
         />

@@ -1,12 +1,14 @@
+import AdminLogout from "../../auth/AdminLogout";
+
 const Admin_SideNav = ({ sideNavWidth, toggleSideNav }) => {
   return (
-    <nav className='fixed py-3 px-2 bg-yellow-600 top-0 bottom-0 left-0 z-30 duration-200' style={{ width: sideNavWidth}}>
+    <nav className='fixed flex flex-col items-center justify-between py-3 px-2 bg-yellow-600 top-0 bottom-0 left-0 z-30 duration-200' style={{ width: sideNavWidth}}>
       <div className='flex items-center justify-center flex-col gap-2 border-b text-light border-light pb-2 relative'>
         <img src="images/vclogo.png" alt="Villa Logo" className={`${sideNavWidth === '11rem' ? 'h-12' : 'h-7'}`}/>
         <h1 className={`font-semibold ${sideNavWidth === '11rem' ? 'text-xl' : 'text-sm'} text-center`}>Villa Crisanta <br /> Admin Panel</h1>
         {sideNavWidth === '11rem' 
           ? <i 
-              className='bx bx-menu-alt-right absolute top-0 bx-md right-0' 
+              className='bx bx-menu-alt-right absolute top-0 bx-md -right-3' 
               onClick={toggleSideNav}
             ></i>
           : <i 
@@ -14,6 +16,11 @@ const Admin_SideNav = ({ sideNavWidth, toggleSideNav }) => {
               onClick={toggleSideNav}
             ></i>
         }
+
+      </div>
+
+      <div id="bottom" className="flex items-center p- w-full justify-between text-white">
+        <AdminLogout />
       </div>
     </nav>
   );

@@ -8,7 +8,8 @@ const AdminProvider = ({ children }) => {
   const [ accessToken , setAccessToken ] = useState('');
   
   const value = {
-    isAuthorized, accessToken
+    isAuthorized, setIsAuthorized,
+    accessToken, setAccessToken
   };
 
   return (
