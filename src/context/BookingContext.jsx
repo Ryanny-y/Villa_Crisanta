@@ -19,10 +19,34 @@ const BookingProvider = ({ children }) => {
     }
   }, [reservationData, error, isLoading])
   
+  // DELETE BOOKING
+  const deleteBooking = async (id) => {
+    const token = '';
+    try {
+      const response = await fetch(`http://localhost:3500/booking/${id}`, {
+        method: DELETE,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        credentials: 'include'
+      })
 
+      if(!response.ok) {
+        const errData = await response.json();
+        const errMsg = errData.message || errData.statusText;
+        throw new Error(errMsg);
+      }
+      
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  
   const value = {
     bookingData,
-    isEditing, setIsEditing
+    isEditing, setIsEditing,
+    deleteBooking
   }
 
   return (

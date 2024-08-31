@@ -1,10 +1,11 @@
 import { createContext, useState } from "react";
+import AdminLogin from "../components/auth/AdminLogin";
 
 export const AdminContext = createContext({});
 
 const AdminProvider = ({ children }) => {
-  const [ isAuthorized, setIsAuthorized ] = useState(true);
-  
+  const [ isAuthorized, setIsAuthorized ] = useState(false);
+  const [ accessToken , setAccessToken ] = useState('');
 
   const value = {
 
@@ -14,7 +15,7 @@ const AdminProvider = ({ children }) => {
     <AdminContext.Provider value={value}>
       {isAuthorized 
         ? children
-        : <p>Login First</p>}
+        : <AdminLogin setIsAuthorized={setIsAuthorized} setAccessToken={setAccessToken}/>}
     </AdminContext.Provider>
   )
 
