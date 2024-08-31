@@ -20,8 +20,8 @@ const BookingProvider = ({ children }) => {
     if(!error && !isLoading) {
       setBookingData(reservationData);
     }
-  }, [reservationData, error, isLoading])
-  
+  }, [reservationData, error, isLoading, bookingData]);
+
   // DELETE BOOKING
   const deleteBooking = async (id) => {
     try {
@@ -54,7 +54,7 @@ const BookingProvider = ({ children }) => {
   };
   
   const value = {
-    bookingData,
+    bookingData, setBookingData,
     isEditing, setIsEditing,
     deleteBooking,
     setActionPerformed

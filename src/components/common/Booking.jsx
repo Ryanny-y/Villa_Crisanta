@@ -149,7 +149,7 @@ const Booking = () => {
       <VillaHeaderTitle title="Book Your Dream Stay" fs="cursive" />
 
       <div className="w-10/12 mx-auto p-5 relative" id="book">
-        <Login />
+        {/* <Login /> */}
 
         <form
           onSubmit={submitBooking}
