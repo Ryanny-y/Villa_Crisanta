@@ -1,6 +1,6 @@
 import SectionLayout from "../layout/SectionLayout";
 import VillaHeaderTitle from "../common/VillaHeaderTitle";
-import { useEffect, useReducer, useState } from "react";
+import { useState } from "react";
 import MyCalendar from "../ui/MyCalendar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
@@ -79,7 +79,7 @@ const Booking = () => {
     });
 
     setShowCalendar(false);
-    setCleared((p) => !p);
+    setCleared(p => !p);
   };
 
   const submitBooking = async (e) => {

@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { BookingContext } from '../../../context/BookingContext';
 
 const ActionsCell = ({ id }) => {
-  const { isEditing, setIsEditing } = useContext(BookingContext);
+  const { isEditing, setIsEditing, deleteBooking } = useContext(BookingContext);
 
   return (
     <td className='py-3 px-4'>
@@ -14,7 +14,7 @@ const ActionsCell = ({ id }) => {
           ? <FontAwesomeIcon className='hover:text-yellow-600 duration-200' icon={faCheck} onClick={() => setIsEditing(false)}/>
           : <i className="fa-regular fa-pen-to-square hover:text-yellow-600 duration-200"  onClick={() => setIsEditing(true)}></i>
         }
-        <FontAwesomeIcon className='hover:text-yellow-600 duration-200' icon={faTrashCan}/>
+        <FontAwesomeIcon className='hover:text-yellow-600 duration-200' icon={faTrashCan} onClick={() => deleteBooking(id)}/>
       </div>
     </td>
   );

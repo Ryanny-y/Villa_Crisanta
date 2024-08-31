@@ -37,7 +37,7 @@ const AdminLogin = ({ setIsAuthorized, setAccessToken }) => {
         setAccessToken(data.access_token);
         setIsAuthorized(true);
         setModalMsg('');
-      }, 1500);
+      }, 1000);
 
     } catch (error) {
       setModalMsg(error.message);

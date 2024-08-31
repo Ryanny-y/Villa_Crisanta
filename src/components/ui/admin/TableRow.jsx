@@ -4,7 +4,7 @@ import StatusCell from './StatusCell';
 import dayjs from 'dayjs'
 
 const TableRow = ({ data }) => {
-  const { _id, villa_resort, first_name, last_name, reservation_date: { start, end}, contact_number, status = "Pending"} = data
+  const { _id, villa_resort, first_name, last_name, reservation_date: { start, end}, contact_number, status } = data
 
   return (
     <tr>

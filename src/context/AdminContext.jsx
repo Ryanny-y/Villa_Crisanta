@@ -6,9 +6,9 @@ export const AdminContext = createContext({});
 const AdminProvider = ({ children }) => {
   const [ isAuthorized, setIsAuthorized ] = useState(false);
   const [ accessToken , setAccessToken ] = useState('');
-
+  
   const value = {
-
+    isAuthorized, accessToken
   };
 
   return (

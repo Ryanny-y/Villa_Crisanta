@@ -20,9 +20,16 @@ const BookingTable = () => {
         </thead>
 
         <tbody className="text-xs md:text-base font-medium text-nowrap">
-          {bookingData.map(data => 
-            <TableRow key={data._id} data={data}/>
-          )}
+          {bookingData.length ? 
+            bookingData.map(data => 
+              <TableRow key={data._id} data={data}/>
+            )
+            :
+            <tr>
+              <td>No Booking To Show</td>
+            </tr>
+          }
+          
         </tbody>
       </table>
     </main>

@@ -35,8 +35,8 @@ const MyCalendar = ({ cleared, setFields, showCalendar, setShowCalendar }) => {
         };
       });
       
-      setEvents(reservations)
-      setEventInitialized(true)
+      setEvents(reservations);
+      setEventInitialized(true);
     }
   }, [reservationData, isLoading, error])
   
@@ -60,7 +60,14 @@ const MyCalendar = ({ cleared, setFields, showCalendar, setShowCalendar }) => {
       
       setEvents(filteredReservation)
     }
-  }, [cleared, reservationData, isLoading, error, eventInitialized])
+  }, [cleared, reservationData, isLoading, error, eventInitialized]);
+  
+  // Clear Calendar if there's not reservationData
+  useEffect(() => {
+    if(!reservationData.length && !isLoading && !error) {
+      setEvents([]);
+    }
+  }, [cleared])
 
   // DAY DAYPROPGETTER
   const dayPropGetter = (date) => {
@@ -119,29 +126,27 @@ const MyCalendar = ({ cleared, setFields, showCalendar, setShowCalendar }) => {
 
   return (
     <div className={`${showCalendar ? 'block' : 'hidden'} absolute w-full top-0 z-20 bg-white`}>
-      {events.length && 
-        <>
-          <Calendar
-            localizer={localizer}
-            defaultView='month'
-            views={['month']}
-            events={events}
-            startAccessor="start"
-            endAccessor="end"
-            style={{ height: '400px' }}
-            selectable
-            onSelectSlot={handleSelect}
-            dayPropGetter={dayPropGetter}
-          />
-            
-          <span onClick={() => setShowCalendar(prev => !prev)}>
-            <FontAwesomeIcon 
-              icon={faX} 
-              className='absolute top-3 right-3 hover:text-yellow-600 duration-200' 
-              />
-          </span>
-        </>
-      }
+      <>
+        <Calendar
+          localizer={localizer}
+          defaultView='month'
+          views={['month']}
+          events={events}
+          startAccessor="start"
+          endAccessor="end"
+          style={{ height: '400px' }}
+          selectable
+          onSelectSlot={handleSelect}
+          dayPropGetter={dayPropGetter}
+        />
+          
+        <span onClick={() => setShowCalendar(prev => !prev)}>
+          <FontAwesomeIcon 
+            icon={faX} 
+            className='absolute top-3 right-3 hover:text-yellow-600 duration-200' 
+            />
+        </span>
+      </>
     </div>
   );
 };

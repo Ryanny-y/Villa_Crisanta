@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useGetBookings = () => {
+const useGetBookings = (actionPerformed = false) => {
 
   const [ reservationData, setReservationData ] = useState([]);
   const [ error, setError ] = useState(null);
@@ -36,7 +36,7 @@ const useGetBookings = () => {
     return () => {
       controller.abort();
     }
-  }, [])
+  }, [actionPerformed])
 
   return { reservationData, error, isLoading }
   
