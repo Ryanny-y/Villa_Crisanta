@@ -9,9 +9,11 @@ const BookingProvider = ({ children }) => {
 
   // CONST VARIABLES
   const { isAuthorized, accessToken } = useContext(AdminContext);
+  const [ origData, setOrigData ] = useState([]);
   const [ bookingData, setBookingData] = useState([]);
   const [ isEditing, setIsEditing ] = useState(false);
   const [ actionPerformed, setActionPerformed ] = useState(true);
+  const [ dataChanged, setDataChanged ] = useState(false);
 
   const { reservationData, error, isLoading } = useGetBookings(actionPerformed);
 
@@ -19,8 +21,14 @@ const BookingProvider = ({ children }) => {
   useEffect(() => {
     if(!error && !isLoading) {
       setBookingData(reservationData);
+      setOrigData(reservationData);
     }
-  }, [reservationData, error, isLoading, bookingData]);
+  }, [reservationData, error, isLoading, dataChanged]);
+
+  const filterByResort = (resort) => {
+    const filteredData = origData.filter(data => data.villa_resort.toLowerCase().includes(resort.toLowerCase()));
+    setBookingData(filteredData);
+  };
 
   // DELETE BOOKING
   const deleteBooking = async (id) => {
@@ -57,7 +65,8 @@ const BookingProvider = ({ children }) => {
     bookingData, setBookingData,
     isEditing, setIsEditing,
     deleteBooking,
-    setActionPerformed
+    filterByResort,
+    setActionPerformed, setDataChanged
   }
 
   return (

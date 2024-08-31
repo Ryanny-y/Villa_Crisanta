@@ -172,7 +172,7 @@ const Booking = () => {
                 Select A Villa
               </option>
               <option value="Villa Crisanta 1">Villa Crisanta 1 Spring Resort</option>
-              <option value="villa Crisanta 2">Villa Crisanta 2 Spring Resort</option>
+              <option value="Villa Crisanta 2">Villa Crisanta 2 Spring Resort</option>
             </select>
           </label>
 

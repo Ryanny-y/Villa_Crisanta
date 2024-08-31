@@ -7,7 +7,8 @@ import dayjs from 'dayjs'
 
 const FilterPanel = () => {
   const [ showFilter, setShowFilter ] = useState(false);
-  const { setActionPerformed, bookingData, setBookingData } = useContext(BookingContext);
+  const [ showVillaFilter, setShowVillaFilter ] = useState(false);
+  const { setActionPerformed, bookingData, setBookingData, setDataChanged, filterByResort } = useContext(BookingContext);
 
   // Handle Sort By Date
   const sortByDate = () => {
@@ -23,21 +24,35 @@ const FilterPanel = () => {
     });
 
     setBookingData(sortedData);
+    setDataChanged(p => !p)
   };  
 
   // Handle Sort By Name
   const sortByName = () => {
     const sortedData = bookingData.sort((a, b) => a.first_name.toLowerCase() < b.first_name.toLowerCase() ? -1 : a.first_name.toLowerCase() > b.first_name.toLowerCase() ? 1 : 0);
     setBookingData(sortedData);
+    setDataChanged(p => !p)
   }
-
 
   // Handle Select Date Range
 
   return ( 
-    <section className="px-5 py-2 flex md:items-center gap-6 items-stretch text-dark text-nowrap justify-end">
-      <div className="mr-auto">
-        <FilterBtn name='All' icon={<FontAwesomeIcon icon={faChevronDown} className="text-sm"/>}/>
+    <section className="px-5 py-2 flex flex-wrap md:items-center gap-6 items-stretch text-dark text-nowrap justify-end">
+      <div className="mr-auto relative">
+        <FilterBtn 
+          name='All'
+          icon={<FontAwesomeIcon icon={faChevronDown} className="text-sm"/>} 
+          onClick={() => {
+            filterByResort('');
+            setShowVillaFilter(p => !p)
+          }}
+        />
+        {showVillaFilter && 
+          <div className="flex flex-col md:flex-row items-center absolute top-8 py-1 left-0 gap-2 bg-light rounded-sm shadow-sm">
+            <FilterBtn name={'Villa Crisanta 1'} onClick={() => filterByResort('villa crisanta 1')}/>
+            <FilterBtn name={'Villa Crisanta 2'} onClick={() => filterByResort('villa crisanta 2')}/>
+          </div>
+        }
       </div>
 
       <div className="hidden md:flex items-stretch gap-6">
