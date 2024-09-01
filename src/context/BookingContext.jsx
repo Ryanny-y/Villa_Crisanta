@@ -14,6 +14,7 @@ const BookingProvider = ({ children }) => {
   const [ isEditing, setIsEditing ] = useState(false);
   const [ actionPerformed, setActionPerformed ] = useState(true);
   const [ dataChanged, setDataChanged ] = useState(false);
+  const [ editedField, setEditedField ] = useState([]);
 
   const { reservationData, error, isLoading } = useGetBookings(actionPerformed);
 
@@ -64,6 +65,7 @@ const BookingProvider = ({ children }) => {
   const value = {
     bookingData, setBookingData,
     isEditing, setIsEditing,
+    editedField, setEditedField,
     deleteBooking,
     filterByResort,
     setActionPerformed, setDataChanged
