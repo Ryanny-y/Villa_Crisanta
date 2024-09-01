@@ -31,6 +31,7 @@ const BookingTable = () => {
           }
           
         </tbody>
+
       </table>
     </main>
   );
