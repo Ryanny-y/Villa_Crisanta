@@ -23,7 +23,7 @@ const Verify = () => {
     const verifyToken = async () => {
       if(token) {
         try {
-          const response = await fetch(`http://localhost:3500/verifyGmail/${token}`, { signal: controller.signal });
+          const response = await fetch(`https://vc-backend-72r1.onrender.com/verifyGmail/${token}`, { signal: controller.signal });
           
           if(!response.ok ) {
             const errData = await response.json();

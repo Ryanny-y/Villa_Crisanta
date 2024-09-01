@@ -14,7 +14,7 @@ const Login = () => {
 
       // SET IF VERIFIED
       try {
-        const response = await fetch('http://localhost:3500/sendVerification', {
+        const response = await fetch('https://vc-backend-72r1.onrender.com/sendVerification', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

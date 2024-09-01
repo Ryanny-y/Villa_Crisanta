@@ -61,7 +61,7 @@ const BookingProvider = ({ children }) => {
         //   return;
         // }
 
-        const response = await fetch(`http://localhost:3500/booking/${id}`, {
+        const response = await fetch(`https://vc-backend-72r1.onrender.com/booking/${id}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ const BookingProvider = ({ children }) => {
   const deleteBooking = async (id) => {
     try {
       if(isAuthorized) {
-        const response = await fetch(`http://localhost:3500/booking/${id}`, {
+        const response = await fetch(`https://vc-backend-72r1.onrender.com/booking/${id}`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
@@ -128,6 +128,7 @@ const BookingProvider = ({ children }) => {
       deleteBooking(dataId)
     }
     setShowConfirmationMsg(false);
+    setDataChanged('');
   }
 
   const value = {

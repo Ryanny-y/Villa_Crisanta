@@ -98,7 +98,7 @@ const Booking = () => {
         throw new Error('Invalid Contact Number Or Alternative Contact Number');
       }
 
-      const response = await fetch('http://localhost:3500/booking', {
+      const response = await fetch('https://vc-backend-72r1.onrender.com/booking', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

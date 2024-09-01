@@ -9,7 +9,7 @@ const AdminLogout = ({ sideNavWidth }) => {
 
   const handleAdminLogout = async () => {
     try {
-      const response = await fetch('http://localhost:3500/logout-admin', {
+      const response = await fetch('https://vc-backend-72r1.onrender.com/logout-admin', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'

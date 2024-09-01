@@ -12,7 +12,7 @@ const useGetBookings = (actionPerformed = false) => {
     const getBookings = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch('http://localhost:3500/booking', { signal: controller.signal });
+        const response = await fetch('https://vc-backend-72r1.onrender.com/booking', { signal: controller.signal });
       
         if(!response.ok) {
           const errData = response.json('');

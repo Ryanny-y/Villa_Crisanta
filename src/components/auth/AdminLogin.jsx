@@ -13,7 +13,7 @@ const AdminLogin = ({ setIsAuthorized, setAccessToken }) => {
         throw new Error('Username and Password are required!');
       }
 
-      const response = await fetch('http://localhost:3500/auth-admin', {
+      const response = await fetch('https://vc-backend-72r1.onrender.com/auth-admin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
