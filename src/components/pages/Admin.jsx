@@ -5,6 +5,7 @@ import FilterPanel from "./admin/FilterPanel";
 import BookingTable from "./admin/BookingTable";
 import AdminProvider from "../../context/AdminContext";
 import BookingProvider from "../../context/BookingContext";
+import BookingDetail from "./admin/BookingDetail";
 
 const Admin = () => {
   const [ sideNavWidth, setSideNavWidth ] = useState('11rem');
@@ -47,6 +48,8 @@ const Admin = () => {
             <FilterPanel />
             <BookingTable />
           </main>
+
+          <BookingDetail />
         </div>
       </BookingProvider>
     </AdminProvider>

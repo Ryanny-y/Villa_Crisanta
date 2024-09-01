@@ -6,11 +6,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 import Login from "../auth/Login";
+import { useNavigate } from 'react-router-dom';
 
 const Booking = () => {
   const [ showCalendar, setShowCalendar ] = useState(false);
   const [ cleared, setCleared ] = useState(false);
   const [ submitMsg, setSubmitMsg ] = useState('')
+  const navigate = useNavigate();
 
   const [ fields, setFields ] = useState({
     chooseVilla: "",
@@ -129,10 +131,11 @@ const Booking = () => {
       
       await response.json();
       setSubmitMsg('Reservation Confirmed. Please wait for the response.');
+      clearFields();
       setTimeout(() => {
         setSubmitMsg('');
+        navigate(0);
       }, 2000);
-      clearFields();
 
     } catch (error) {
       setSubmitMsg(error.message);

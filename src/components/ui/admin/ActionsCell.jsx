@@ -4,13 +4,13 @@ import { useContext, useState } from 'react';
 import { BookingContext } from '../../../context/BookingContext';
 
 const ActionsCell = ({ id }) => {
-  const { isEditing, setIsEditing, setShowConfirmationMsg, handleEdit, setDataId } = useContext(BookingContext);
+  const { isEditing, setIsEditing, setShowConfirmationMsg, handleEdit, setDataId, viewBookingDetail } = useContext(BookingContext);
 
   return (
     <td className='py-3 px-4'>
       <div className='flex items-center gap-3 relative'>
         {/* Action For Viewing */}
-        <i className="fa-regular fa-eye hover:text-yellow-600 duration-200"></i>
+        <i className="fa-regular fa-eye hover:text-yellow-600 duration-200" onClick={() => viewBookingDetail(id)}></i>
 
         {/* Action For Editing */}
         {isEditing 

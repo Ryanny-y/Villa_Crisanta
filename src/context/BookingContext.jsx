@@ -8,7 +8,7 @@ export const BookingContext = createContext({});
 
 const BookingProvider = ({ children }) => {
 
-  // CONST VARIABLES
+  // CONST VARIABLES  
   const { isAuthorized, accessToken } = useContext(AdminContext);
   const [ origData, setOrigData ] = useState([]);
   const [ bookingData, setBookingData] = useState([]);
@@ -18,6 +18,8 @@ const BookingProvider = ({ children }) => {
   const [ editedField, setEditedField ] = useState([]);
   const [ showConfirmationMsg, setShowConfirmationMsg ] = useState(false);
   const [ dataId, setDataId ] = useState('');
+  const [ bookingDetails, setBookingDetails ] = useState({});
+  const [ showDetails, setShowDetails ] = useState(false);
 
   const { reservationData, error, isLoading } = useGetBookings(actionPerformed);
 
@@ -60,7 +62,7 @@ const BookingProvider = ({ children }) => {
         //   alert('Invalid Villa');
         //   return;
         // }
-
+        
         const response = await fetch(`https://vc-backend-72r1.onrender.com/booking/${id}`, {
           method: 'PATCH',
           headers: {
@@ -81,8 +83,7 @@ const BookingProvider = ({ children }) => {
         return data;
       })
 
-      const responses = await Promise.all(editPromises);
-      console.log('Responses', responses);
+      await Promise.all(editPromises);
       setDataChanged(p => !p);
       setActionPerformed(p => !p);
     } catch (error) {
@@ -129,6 +130,30 @@ const BookingProvider = ({ children }) => {
     }
     setShowConfirmationMsg(false);
     setDataChanged('');
+  };
+
+  const viewBookingDetail = async (id) => {
+    try {
+      const response = await fetch(`https://vc-backend-72r1.onrender.com/booking/${id}`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${accessToken}`
+        },
+        credentials: 'include'
+      })
+
+      if(!response.ok) {
+        const errData = await response.json();
+        const errMsg = errData.message || errData.statusText;
+        throw new Error(errMsg);
+      }
+
+      const data = await response.json();
+      setBookingDetails(data);
+      setShowDetails(true);
+    } catch (error) {
+      console.log(error.message)
+    }
   }
 
   const value = {
@@ -138,7 +163,10 @@ const BookingProvider = ({ children }) => {
     handleEdit, deleteBooking,
     filterByResort,
     setActionPerformed, setDataChanged,
-    showConfirmationMsg, setShowConfirmationMsg, setDataId
+    showConfirmationMsg, setShowConfirmationMsg, setDataId,
+    bookingDetails, setBookingDetails,
+    viewBookingDetail,
+    showDetails, setShowDetails
   }
 
   return (
