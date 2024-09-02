@@ -4,7 +4,7 @@ import { useContext, useState } from 'react';
 import { BookingContext } from '../../../context/BookingContext';
 
 const ActionsCell = ({ id }) => {
-  const { isEditing, setIsEditing, setShowConfirmationMsg, handleEdit, setDataId, viewBookingDetail } = useContext(BookingContext);
+  const { isEditing, setIsEditing, setShowConfirmationMsg, setDataId, viewBookingDetail, handleEdit } = useContext(BookingContext);
 
   return (
     <td className='py-3 px-4'>

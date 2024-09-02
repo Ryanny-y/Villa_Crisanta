@@ -2,43 +2,23 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { BookingContext } from '../../../context/BookingContext';
 
 const TableCell = ({ data, property, id }) => {
-  const { isEditing, setEditedField } = useContext(BookingContext);
+  const { isEditing, editedField, setEditedField } = useContext(BookingContext);
   const [inputValue, setInputValue] = useState(data);
   const inputRef = useRef();
 
-  useEffect(() => {
-    setEditedField(prevField => {
-      const matchingField = prevField.find(field => field._id === id);
-
-      if (matchingField) {
-        return prevField.map(field => {
-          if (field._id === id) {
-            return { ...field, [property]: data };
-          }
-          return field;
-        });
-      } else {
-        return [...prevField, { _id: id, [property]: data }];
-      }
-    });
-  }, [id, data, property, setEditedField]);
-
   const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-    setEditedField(prevField => {
-      const matchingField = prevField.find(field => field._id === id);
+    const value = e.target.value;
+    setInputValue(value);
 
-      if (matchingField) {
-        return prevField.map(field => {
-          if (field._id === id) {
-            return { ...field, [property]: e.target.value };
-          }
-          return field;
-        });
-      } else {
-        return [...prevField, { _id: id, [property]: e.target.value }];
-      }
-    });
+    const editedObject = editedField.find(field => field.id === id);
+
+    if(editedObject) {
+      editedObject[property] = value;
+    } else {
+      setEditedField(prev => 
+        [...prev, { id, [property]: value }]
+      )
+    }
   };
 
   const handleClickEdit = () => {
@@ -62,7 +42,7 @@ const TableCell = ({ data, property, id }) => {
               value={inputValue} 
               ref={inputRef}
               disabled
-              onChange={handleInputChange}
+              onChange={(e) => handleInputChange(e)}
             />
             <i className='bx bx-pencil text-sm md:text-base hover:text-yellow-600 duration-200' onClick={handleClickEdit}></i>
           </div>
