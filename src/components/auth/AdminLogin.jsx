@@ -4,8 +4,8 @@ import { useState } from "react";
 const AdminLogin = ({ setIsAuthorized, setAccessToken }) => {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
-  const [ modalMsg, setModalMsg ] = useState('')
-
+  const [ modalMsg, setModalMsg ] = useState('');
+  
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -13,6 +13,7 @@ const AdminLogin = ({ setIsAuthorized, setAccessToken }) => {
         throw new Error('Username and Password are required!');
       }
 
+      setModalMsg('Loading. Please Wait');
       const response = await fetch('https://vc-backend-72r1.onrender.com/auth-admin', {
         method: 'POST',
         headers: {
@@ -83,7 +84,7 @@ const AdminLogin = ({ setIsAuthorized, setAccessToken }) => {
         </button>
       </form>
 
-      { modalMsg &&
+      {modalMsg &&
         <div className="modal absolute top-1/2 left-1/2 -translate-x-1/2 bg-light px-5 py-3 shadow-lg rounded-md font-semibold" style={{ transform: 'translateY(50% - 12px)'}}>
           {modalMsg}
         </div>

@@ -4,24 +4,22 @@ import { AdminContext } from "./AdminContext";
 import dayjs from 'dayjs'
 
 export const BookingContext = createContext({});
-
-
 const BookingProvider = ({ children }) => {
 
   // CONST VARIABLES  
   const { isAuthorized, accessToken } = useContext(AdminContext);
-  const [ origData, setOrigData ] = useState([]);
-  const [ bookingData, setBookingData] = useState([]);
-  const [ isEditing, setIsEditing ] = useState(false);
+  const [ origData, setOrigData ] = useState([]); 
+  const [ bookingData, setBookingData] = useState([]); 
+  const [ isEditing, setIsEditing ] = useState(false); 
   const [ actionPerformed, setActionPerformed ] = useState(true);
-  const [ dataChanged, setDataChanged ] = useState(false);
+  const [ dataChanged, setDataChanged ] = useState(false); 
   const [ editedField, setEditedField ] = useState([]);
   const [ showConfirmationMsg, setShowConfirmationMsg ] = useState(false);
   const [ dataId, setDataId ] = useState('');
   const [ bookingDetails, setBookingDetails ] = useState({});
   const [ showDetails, setShowDetails ] = useState(false);
 
-  const { reservationData, error, isLoading } = useGetBookings(actionPerformed);
+  const { reservationData, error, isLoading } = useGetBookings(actionPerformed); 
 
   // USEEFFECT FOR CHECKING THE RESERVATION DATA AND ASSIGNING THE DATE TO THE BOOKING DATA
   useEffect(() => {
@@ -36,6 +34,7 @@ const BookingProvider = ({ children }) => {
     setBookingData(filteredData);
   };
 
+  // EDIT BOOKING
   const handleEdit = async () => {
     try {
       const editPromises = editedField.map(async field => {
@@ -57,11 +56,6 @@ const BookingProvider = ({ children }) => {
           alert('Please enter a firstname and lastname');
           return;
         }
-
-        // if(villa_resort !== 'Villa Crisanta 1' || villa_resort  !== 'Villa Crisanta 2') {
-        //   alert('Invalid Villa');
-        //   return;
-        // }
         
         const response = await fetch(`https://vc-backend-72r1.onrender.com/booking/${id}`, {
           method: 'PATCH',
@@ -87,7 +81,7 @@ const BookingProvider = ({ children }) => {
       setDataChanged(p => !p);
       setActionPerformed(p => !p);
     } catch (error) {
-      console.log(error.message)
+      alert(error.message)
     }
 
   } 
@@ -124,6 +118,7 @@ const BookingProvider = ({ children }) => {
 
   };
 
+  // HANDLE CONFIRMATION OF DELETION
   const handleConfirmation = (confirmed) => {
     if(confirmed) {
       deleteBooking(dataId)
@@ -132,32 +127,22 @@ const BookingProvider = ({ children }) => {
     setDataChanged('');
   };
 
+  // VIEW BOOKING DETAILS
   const viewBookingDetail = async (id) => {
-    try {
-      const response = await fetch(`https://vc-backend-72r1.onrender.com/booking/${id}`, {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${accessToken}`
-        },
-        credentials: 'include'
-      })
+    const matchingBooking = origData.find(data => data._id === id);
 
-      if(!response.ok) {
-        const errData = await response.json();
-        const errMsg = errData.message || errData.statusText;
-        throw new Error(errMsg);
-      }
-
-      const data = await response.json();
-      setBookingDetails(data);
-      setShowDetails(true);
-    } catch (error) {
-      console.log(error.message)
+    if(!matchingBooking) {
+      alert('Bookiong Not Found!');
+      return;
     }
+
+    setBookingDetails(matchingBooking);
+    setShowDetails(true);
   }
 
   const value = {
     bookingData, setBookingData,
+    origData,
     isEditing, setIsEditing,
     editedField, setEditedField,
     handleEdit, deleteBooking,
