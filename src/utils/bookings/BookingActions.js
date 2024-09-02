@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 
 
 const BookingActions = (setActionPerformed, setShowDetails, setBookingDetails, origData, setBookingData, setDataChanged, editedField) => {
-  const { isAuthorized, accessToken } = useContext(AdminContext); 
+  const { isAuthorized, accessToken } = useContext(AdminContext);
 
   // EDIT BOOKING
   const handleEdit = async () => {
@@ -107,6 +107,8 @@ const BookingActions = (setActionPerformed, setShowDetails, setBookingDetails, o
     const filteredData = origData.filter(data => data.villa_resort.toLowerCase().includes(resort.toLowerCase()));
     setBookingData(filteredData);
   };
+
+
   return {
     deleteBooking, viewBookingDetail, filterByResort, handleEdit
   }

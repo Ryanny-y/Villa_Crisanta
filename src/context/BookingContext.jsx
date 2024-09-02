@@ -1,14 +1,12 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import useGetBookings from '../utils/hooks/useGetBookings';
-import { AdminContext } from "./AdminContext";
 import BookingActions from "../utils/bookings/BookingActions";
+import BookingData from "../utils/bookings/BookingData";
 
 export const BookingContext = createContext({});
 const BookingProvider = ({ children }) => {
 
   // CONST VARIABLES  
-  const [ origData, setOrigData ] = useState([]); 
-  const [ bookingData, setBookingData] = useState([]); 
   const [ isEditing, setIsEditing ] = useState(false); 
   const [ actionPerformed, setActionPerformed ] = useState(true);
   const [ dataChanged, setDataChanged ] = useState(false); 
@@ -18,17 +16,9 @@ const BookingProvider = ({ children }) => {
   const [ bookingDetails, setBookingDetails ] = useState({});
   const [ showDetails, setShowDetails ] = useState(false);
 
-  const { reservationData, error, isLoading } = useGetBookings(actionPerformed); 
-
+  const { origData, bookingData, setBookingData } = BookingData(dataChanged, actionPerformed);
+  
   const { deleteBooking, viewBookingDetail, filterByResort, handleEdit } = BookingActions(setActionPerformed, setShowDetails, setBookingDetails, origData, setBookingData, setDataChanged, editedField);
-
-  // USEEFFECT FOR CHECKING THE RESERVATION DATA AND ASSIGNING THE DATE TO THE BOOKING DATA
-  useEffect(() => {
-    if(!error && !isLoading) {
-      setBookingData(reservationData);
-      setOrigData(reservationData);
-    }
-  }, [reservationData, error, isLoading, dataChanged]);
 
   // HANDLE CONFIRMATION OF DELETION
   const handleConfirmation = (confirmed) => {
