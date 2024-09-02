@@ -1,5 +1,4 @@
-import { createContext, useEffect, useState } from "react";
-import useGetBookings from '../utils/hooks/useGetBookings';
+import { createContext, useState } from "react";
 import BookingActions from "../utils/bookings/BookingActions";
 import BookingData from "../utils/bookings/BookingData";
 import ConfirmationMsg from "../components/ui/admin/ConfirmationMsg";

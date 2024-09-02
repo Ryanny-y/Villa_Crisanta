@@ -12,7 +12,7 @@ import useScrollToElement from "../../utils/hooks/useScrollToElement";
 
 const Villa = () => {
   useShowLoading();
-  useScrollToElement();  
+  useScrollToElement();
 
   return (
     <main className="landing-page flex flex-col">

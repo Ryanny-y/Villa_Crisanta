@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { BookingContext } from '../../../context/BookingContext';
 
 const TableCell = ({ data, property, id }) => {

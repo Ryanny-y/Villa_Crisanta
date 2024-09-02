@@ -27,6 +27,7 @@ const BookingActions = (
           contact_number: filteredField?.contact_number || undefined,
           first_name: first_name || undefined,
           last_name: last_name || undefined,
+          status: filteredField?.status || undefined,
           reservation_date: filteredField?.reservation_date
             ? {
                 start: dayjs(filteredField.reservation_date.split(" - ")[0]),
@@ -56,6 +57,7 @@ const BookingActions = (
           throw new Error(errMsg);
         }        
 
+        console.log(filteredBody);
         const data = await response.json();
         return data;
         

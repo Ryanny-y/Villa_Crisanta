@@ -13,10 +13,11 @@ const useScrollToElement = () => {
             top: element.offsetTop,
             behavior: 'smooth'
           });
+          return;
         }
-      } else {
-        window.scrollTo(0, 0)
       }
+      
+      window.scrollTo(0, 0)
     };
     scrollToHash();
   }, [location.hash]);

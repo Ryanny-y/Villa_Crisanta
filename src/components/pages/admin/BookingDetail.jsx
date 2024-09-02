@@ -6,6 +6,11 @@ import dayjs from "dayjs";
 
 const BookingDetail = () => {
   const { showDetails, setShowDetails, bookingDetails, setBookingDetails } = useContext(BookingContext);
+  const statusColor = bookingDetails.status === "Confirmed"
+  ? "text-green-600"
+  : bookingDetails.status === "Pending"
+  ? "text-orange-600"
+  : "text-red-600";
 
   const convertedTime = () => {
     const [ hoursStr, minutesStr ] = bookingDetails.time_in.split(':');
@@ -83,7 +88,7 @@ const BookingDetail = () => {
 
               <section>
                 <p className="text-xs font-normal">Status</p>
-                <p className="text-sm font-semibold md:text-base text-orange-600">
+                <p className={`text-sm font-semibold md:text-base ${statusColor}`}>
                   {bookingDetails.status}
                 </p>
               </section>
