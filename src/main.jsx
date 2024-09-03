@@ -9,6 +9,7 @@ import LandingPage from './components/pages/LandingPage';
 import Villa from './components/pages/Villa';
 import Admin from './components/pages/Admin'
 import Verify from './components/auth/Verify';
+import NotFound from './components/pages/NotFound'
 
 register();
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: '/Villa_Crisanta/admin',
     element: <Admin />
+  }, 
+  {
+    path: '*',
+    element: <NotFound />
   }
 ])
 
