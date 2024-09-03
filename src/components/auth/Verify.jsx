@@ -13,9 +13,9 @@ const Verify = () => {
     const redirect = (verified = false) => {
       setTimeout(() => {
         if(verified) {
-          navigate('/Villa_Crisanta/#book');
+          navigate('/#book');
         } else {
-          navigate('/Villa_Crisanta/');
+          navigate('/');
         }
       }, 5000);
     }
@@ -45,7 +45,7 @@ const Verify = () => {
           
         } catch (error) {
           setVerified(false);
-          setVerificationMsg('Verification Failed. . Redirecting...');
+          setVerificationMsg('Verification Failed. Redirecting...');
           redirect();
         }
       } else {
