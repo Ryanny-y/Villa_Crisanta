@@ -9,7 +9,6 @@ const Layout = () => {
 
   const [ loading, setLoading ] = useState(true);
   const { reservationData, error, isLoading } = useGetBookings();
-  console.log(loading);
 
   useEffect(() => {
     if(reservationData.length && !isLoading && !error) {

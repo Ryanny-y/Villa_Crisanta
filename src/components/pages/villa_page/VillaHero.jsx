@@ -11,11 +11,8 @@ const VillaHero = () => {
       data-aos="fade-down"
       data-aos-duration="800"
     >
-      <div className="bg-image absolute top-0 left-0 bottom-0 right-0"
-        style={{
-          background: `url("images/${villaDetails.path}/${villaDetails.background_img}.webp") no-repeat center / cover`,
-          filter: 'brightness(50%)'
-        }}>
+      <div className='absolute top-0 left-0 w-full h-full brightness-70'>
+        <img src={`./images/${villaDetails.path}/${villaDetails.background_img}.webp`} alt="" className='h-full w-full object-cover' />
       </div>
 
       <div className="container relative z-10">
