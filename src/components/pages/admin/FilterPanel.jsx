@@ -7,6 +7,7 @@ import dayjs from "dayjs";
 import FilterByVilla from "../../ui/admin/filter/FilterByVilla";
 import FilterMobile from "../../ui/admin/filter/FilterMobile";
 import FilterByStatus from "../../ui/admin/filter/FilterByStatus";
+import FilterByDateRange from "../../ui/admin/filter/FilterByDateRange";
 
 const FilterPanel = () => {
   const { setActionPerformed, bookingData, setBookingData, setDataChanged } =
@@ -62,10 +63,7 @@ const FilterPanel = () => {
           icon={<FontAwesomeIcon icon={faSort} className="text-sm" />}
         />
 
-        <FilterBtn
-          name="Select Date Range"
-          icon={<i className="bx bx-calendar text-sm"></i>}
-        />
+        <FilterByDateRange/>
       </div>
 
       <FilterMobile sortByDate={sortByDate} sortByName={sortByName} />

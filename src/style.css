@@ -74,7 +74,7 @@ body, html {
 
 /* booking */
 
-.rbc-event {
+.booking .rbc-event, .calendar-filter .rbc-event {
   @apply bg-yellow-600 text-white rounded-lg h-full !important;
 }
 
@@ -87,23 +87,32 @@ body, html {
   cursor: pointer
 }
 
-.rbc-today {
+.booking .rbc-today {
   @apply bg-yellow-100 !important;
 }
 
 .highlighted-day {
-  @apply bg-gray-400;
+  @apply bg-gray-300;
 }
 
 .rbc-day-bg.highlighted-day:hover {
-  @apply bg-gray-400 !important;
+  @apply bg-gray-300 !important;
   cursor: auto;
 }
 
-.rbc-btn-group {
+.booking .rbc-btn-group {
   @apply flex flex-wrap gap-2 text-sm w-full justify-start items-start md:text-base !important;
 }
 
-.rbc-btn-group button {
+.booking .rbc-btn-group button {
   @apply px-5 w-20 text-center flex items-center justify-center !important;
+}
+
+/* CALENDAR FILTER */
+.calendar-filter .rbc-event{
+  @apply text-xs !important;
+}
+
+.calendar-filter .rbc-button-link {
+  @apply text-xs !important;
 }

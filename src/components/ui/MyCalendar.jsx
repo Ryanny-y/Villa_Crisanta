@@ -1,6 +1,6 @@
 import { Calendar, dayjsLocalizer } from 'react-big-calendar';
 import dayjs from 'dayjs';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import useGetBookings from '../../utils/hooks/useGetBookings';
 import utc from 'dayjs/plugin/utc';
@@ -125,7 +125,7 @@ const MyCalendar = ({ cleared, setFields, showCalendar, setShowCalendar }) => {
   };
 
   return (
-    <div className={`${showCalendar ? 'block' : 'hidden'} absolute w-full top-0 z-20 bg-white`}>
+    <div className={`${showCalendar ? 'block' : 'hidden'} absolute w-full top-0 z-20 bg-white booking`}>
       <>
         <Calendar
           localizer={localizer}
