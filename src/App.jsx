@@ -3,6 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
 import AuthProvider from "./context/AuthContext";
+import BookingProvider from "./context/BookingContext";
 
 export default function App() {
 
@@ -14,7 +15,7 @@ export default function App() {
   
   return (
     <AuthProvider>
-      <Layout />
+        <Layout />
     </AuthProvider>
   )
 }

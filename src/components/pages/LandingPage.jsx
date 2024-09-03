@@ -4,20 +4,13 @@ import About from "./landing_page/About";
 import PhotoGallery from "./landing_page/PhotoGallery";
 import Team from "./landing_page/Team";
 import Contact from "../common/Contact";
-import { useOutletContext } from "react-router-dom";
-import { useEffect } from "react";
 import Booking from "../common/Booking";
 import useScrollToElement from "../../utils/hooks/useScrollToElement";
+import useShowLoading from "../../utils/hooks/useShowLoading";
 
 const LandingPage = () => {
-
-  const { setLoading } = useOutletContext();
-
+  useShowLoading();
   useScrollToElement();  
-  
-  useEffect(() => {
-    setLoading(true);
-  }, [])
 
   return (
     <main className="landing-page flex flex-col">

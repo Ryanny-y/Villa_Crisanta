@@ -3,21 +3,21 @@ import { Outlet } from 'react-router-dom';
 import VillaProvider from '../../context/VillaContext'
 import Footer from '../common/Footer';
 import { useEffect, useState } from 'react';
+import useGetBookings from '../../utils/hooks/useGetBookings';
 
 const Layout = () => {
 
   const [ loading, setLoading ] = useState(true);
+  const { reservationData, error, isLoading } = useGetBookings();
+  console.log(loading);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setLoading(false);
-    }, 3500);
-
-    return () => {
-      clearTimeout(timeoutId)
+    if(reservationData.length && !isLoading && !error) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1500);
     }
-  }, [loading])
-
+  }, [reservationData, error, isLoading, loading])
 
   return (
     <div className='font-poppins text-dark bg-light'>

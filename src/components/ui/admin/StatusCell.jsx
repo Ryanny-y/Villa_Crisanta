@@ -42,7 +42,7 @@ const StatusCell = ({ status, property, id }) => {
 
   return (
     <td className="py-3 px-4 flex items-center gap-2">
-      {!isEditing && <div className="border text-xs md:text-base  border-gray-400 rounded-full inline-flex items-center gap-2 px-3 py-1">
+      {!isEditing && <div className="border text-xs md:text-sm border-gray-400 rounded-full inline-flex items-center gap-2 w-28 px-2 py-1">
         <div className={`h-2 w-2 ${statusColor} rounded-full`}></div>
         <p>{statusValue}</p>
       </div>}

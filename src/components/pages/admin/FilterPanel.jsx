@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSort, faChevronDown, faRefresh } from "@fortawesome/free-solid-svg-icons";
+import { faSort, faChevronDown, faRefresh, faTag, faCircle } from "@fortawesome/free-solid-svg-icons";
 import FilterBtn from "../../ui/admin/FilterBtn";
 import { useContext, useState } from "react";
 import { BookingContext } from "../../../context/BookingContext";
@@ -8,7 +8,15 @@ import dayjs from 'dayjs'
 const FilterPanel = () => {
   const [ showFilter, setShowFilter ] = useState(false);
   const [ showVillaFilter, setShowVillaFilter ] = useState(false);
-  const { setActionPerformed, bookingData, setBookingData, setDataChanged, filterByResort } = useContext(BookingContext);
+  const { setActionPerformed, bookingData, setBookingData, setDataChanged, filterByResort, origData } = useContext(BookingContext);
+  const [ showStatus, setShowStatus ] = useState(false);
+
+  // Filter By Status
+  const filterByStatus = (status) => {
+    const filteredData = origData.filter(data => data.status === status);
+
+    setBookingData(filteredData);
+  };
 
   // Handle Sort By Date
   const sortByDate = () => {
@@ -37,7 +45,7 @@ const FilterPanel = () => {
   // Handle Select Date Range
 
   return ( 
-    <section className="px-5 py-2 flex flex-wrap md:items-center gap-6 items-stretch text-dark text-nowrap justify-end">
+    <section className="px-5 py-2 flex flex-wrap gap-6 items-stretch text-dark text-nowrap justify-end">
       <div className="mr-auto relative">
         <FilterBtn 
           name='All'
@@ -55,13 +63,15 @@ const FilterPanel = () => {
         }
       </div>
 
-      <div className="hidden md:flex items-stretch gap-6">
+      <div className="hidden md:flex grow justify-end gap-6">
         <FilterBtn name='Sort By Date' onClick={() => sortByDate()} icon={<FontAwesomeIcon icon={faSort} className="text-sm"/>}/>
+
         <FilterBtn name='Sort By Name' onClick={() => sortByName()} icon={<FontAwesomeIcon icon={faSort} className="text-sm"/>}/>
+
         <FilterBtn name='Select Date Range' icon={<i className='bx bx-calendar text-sm'></i>}/>
       </div>
 
-      <div className="flex md:hidden items-stretch gap-6 relative">
+      <div className="flex md:hidden gap-6 relative">
         <button 
           className="flex items-center gap-3 border border-primaryGray rounded-md px-3 py-1 hover:bg-yellow-600 hover:text-white duration-200 text-xs"
           onClick={() => setShowFilter(prev => !prev)}
@@ -79,7 +89,29 @@ const FilterPanel = () => {
 
       </div>
 
-      <button className="flex items-center gap-3 border justify-between border-primaryGray rounded-md px-3 py-1 hover:bg-yellow-600 hover:text-white duration-200" onClick={() => setActionPerformed(prev => !prev)}>
+      <div className="relative" onClick={() => setShowStatus(p => !p)}>
+          <FilterBtn name='Filter By Status' icon={<FontAwesomeIcon icon={faChevronDown} />}/>
+
+          {showStatus && <div className="flex absolute -bottom-8 gap-2 right-0 bg-light ">
+            <FilterBtn 
+              name='Confirmed'
+              onClick={() => filterByStatus('Confirmed')}
+              icon={<FontAwesomeIcon icon={faCircle} className="text-xs text-green-600"/>}
+            />
+            <FilterBtn 
+              name='Pending'
+              onClick={() => filterByStatus('Pending')}
+              icon={<FontAwesomeIcon icon={faCircle} className="text-xs text-orange-600"/>}
+            />
+            <FilterBtn 
+              name='Active'
+              onClick={() => filterByStatus('Cancelled')}
+              icon={<FontAwesomeIcon icon={faCircle} className="text-xs text-red-700"/>}
+            />
+          </div>}
+      </div>
+        
+      <button className="flex basis-24 items-center gap-3 border justify-between border-primaryGray rounded-md px-3 py-1 hover:bg-yellow-600 hover:text-white duration-200" onClick={() => setActionPerformed(prev => !prev)}>
         <h1 className="font-medium text-xs">Refresh</h1>
         <FontAwesomeIcon icon={faRefresh} className="text-sm"/>
       </button>
