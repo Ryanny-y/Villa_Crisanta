@@ -14,7 +14,7 @@ import NotFound from './components/pages/NotFound'
 register();
 const router = createBrowserRouter([
   {
-    path: '/Villa_Crisanta/',
+    path: '/',
     element: <App />,
     children: [
       {
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: '/Villa_Crisanta/admin',
+    path: '/admin',
     element: <Admin />
   }, 
   {
