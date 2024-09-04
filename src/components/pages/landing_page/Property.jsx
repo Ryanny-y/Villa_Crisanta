@@ -17,12 +17,16 @@ const Property = () => {
           duration="800"
           img="villa-1"
           property={villaData[0]}
+          name='VILLA CRISANTA 1 SPRING RESORT'
+          address='Blk 26, Lot 8, Geneva Lake St., Phase 2, Lakewood Subd., Brgy. Tadlac, 4030 Los Baños Laguna'
         />
         <PropertyBox
           aos="zoom-in"
           duration="800"
           img="villa-2"
           property={villaData[1]}
+          name='VILLA CRISANTA 2 SPRING RESORT'
+          address='Blk 26, Lot 10, Barcroft Lake St., Phase 2, Lakewood Executive Subd., Brgy. Tadlac, 4030 Los Baños Laguna'
         />
       </div>
     </SectionLayout>

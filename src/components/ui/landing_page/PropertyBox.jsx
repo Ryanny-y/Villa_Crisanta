@@ -5,7 +5,7 @@ import { useContext, useState } from "react";
 import useImageLoader from "../../../utils/hooks/useImageLoader";
 import { VillaContext } from "../../../context/VillaContext";
 
-const PropertyBox = ({ aos, duration, img, property }) => {
+const PropertyBox = ({ aos, duration, img, property, name, address }) => {
   const imgSrc = `images/landing/${img}.webp`;
   const imgLoaded = useImageLoader(imgSrc);
   const { setVillaDetails } = useContext(VillaContext);
@@ -35,11 +35,10 @@ const PropertyBox = ({ aos, duration, img, property }) => {
 
       <div className="details flex flex-col items-start gap-2 absolute bottom-10 left-8 right-8 p-3 rounded-sm bg-white">
         <h1 className="font-bold text-lg md:w-1/2 leading-tight tracking-wide">
-          VILLA CRISANTA 1 SPRING RESORT
+          {name}
         </h1>
         <address className="underline text-sm font-semibold">
-          Blk 26, Lot 8, Geneva Lake St., Phase 2, Lakewood Subd., Brgy. Tadlac,
-          4030 Los Baños Laguna
+          {address}
         </address>
         <button className="text-sm font-semibold hover:text-yellow-500">
           View Page <FontAwesomeIcon icon={faArrowRight} className="ml-1" />

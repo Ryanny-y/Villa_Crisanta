@@ -4,7 +4,7 @@ const SectionLayout = ({ sectionId, children }) => {
     <section 
       id={sectionId} 
       className={`
-        ${sectionId === 'photo-gallery' && 'mb-20 md:mb-16 lg:mb-12'} 
+        ${sectionId === 'photo-gallery' && 'mb-24 md:mb-16 lg:mb-12'} 
         ${(sectionId === 'about-us' || sectionId === 'accommodation-rates') && 'overflow-hidden'}
         ${sectionId === 'contact' && 'text-white bg-dark mt-14 py-14'}
         pt-20`
