@@ -7,7 +7,7 @@ import AmenitiesImgCard from '../../ui/villa/AmenitiesImgCard';
 
 const Amenities = () => {
 
-  const { villaDetails: { amenities, amenities_img } } = useContext(VillaContext);
+  const { villaDetails: { amenities, amenities_img, path } } = useContext(VillaContext);
 
   return (
     <SectionLayout sectionId="amenities">
@@ -22,9 +22,9 @@ const Amenities = () => {
       </div>
 
       <div className='flex flex-wrap justify-center md:w-4/5 mx-auto gap-10 items-center overflow-hidden'>
-        <AmenitiesImgCard img={amenities_img[0]} aos={'fade-right'}/>
-        <AmenitiesImgCard img={amenities_img[1]} aos={'fade-up'}/>
-        <AmenitiesImgCard img={amenities_img[2]} aos={'fade-left'}/>
+        <AmenitiesImgCard img={amenities_img[0]} aos={'fade-right'} path={path}/>
+        <AmenitiesImgCard img={amenities_img[1]} aos={'fade-up'} path={path}/>
+        <AmenitiesImgCard img={amenities_img[2]} aos={'fade-left'} path={path}/>
       </div>
     </SectionLayout>
   )

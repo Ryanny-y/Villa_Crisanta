@@ -11,7 +11,7 @@ const Layout = () => {
   const { reservationData, error, isLoading } = useGetBookings();
 
   useEffect(() => {
-    if(reservationData.length && !isLoading && !error) {
+    if(!isLoading && !error) {
       setTimeout(() => {
         setLoading(false);
       }, 1500);
