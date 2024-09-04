@@ -28,7 +28,7 @@ const Admin_SideNav = ({ sideNavWidth, toggleSideNav }) => {
 
       <div id="bottom" className={`flex ${sideNavWidth === '11rem' ? 'flex-row' : 'flex-col-reverse gap-4'} items-center px-3 w-full justify-between text-white`}>
         <AdminLogout sideNavWidt={sideNavWidth}/>
-        <button className="text-3xl relative" onClick={() => navigate('/Villa_Crisanta/')}>
+        <button className="text-3xl relative" onClick={() => navigate('/')}>
           <FontAwesomeIcon className="z-10" icon={faLocationArrow} onMouseEnter={() => setShowToolTip(true)} onMouseLeave={() => setShowToolTip(false)}/>
           <p className={` duration-500 ${showToolTip ? 'opacity-1' : 'opacity-0'} text-xs font-medium absolute ${sideNavWidth === '11rem' ? 'right-3 -top-7  ' : 'left-5 bg-yellow-600 py-3 px-2 rounded-md -top-10'} -z-10`}>Go To Website</p>
         </button>

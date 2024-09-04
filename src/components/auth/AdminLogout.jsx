@@ -1,10 +1,12 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AdminContext } from '../../context/AdminContext';
+import { BookingContext } from "../../context/BookingContext";
 
 const AdminLogout = ({ sideNavWidth }) => {
   const [ showToolTip, setShowToolTip ] = useState(false);
   const { setIsAuthorized, setAccessToken } = useContext(AdminContext);
+  const { showMsgAction } = useContext(BookingContext)
   const navigate = useNavigate(); 
 
   const handleAdminLogout = async () => {
@@ -24,10 +26,10 @@ const AdminLogout = ({ sideNavWidth }) => {
 
       setIsAuthorized(false);
       setAccessToken('');
-      navigate('/Villa_Crisanta/admin');
+      navigate('/admin');
 
     } catch (error) {
-      console.log(error.message)
+      showMsgAction(error.message)
     }
 
   }

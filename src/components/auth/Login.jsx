@@ -46,12 +46,12 @@ const Login = () => {
       {!verified && (
         <div className="flex items-center justify-center absolute bg-gray-900 rounded-lg opacity-80 top-0 bottom-0 left-0 right-0 z-20 text-white">
           <form
-            className='flex flex-col gap-5 justify-center text-center'
+            className='flex flex-col gap-5 justify-center text-center p-3'
             onSubmit={handleSendGmail}
           >
             <h1 className="text-xl font-semibold">Login With Gmail</h1>
-            <div className="gmail-input flex items-stretch justify-between gap-2">
-              <div className="bg-secondaryGray px-3 py-2 grow rounded-md relative">
+            <div className="gmail-input flex flex-col items-center sm:flex-row sm:items-stretch sm:justify-between gap-3 sm:gap-2">
+              <div className="bg-secondaryGray px-3 py-2 grow rounded-md relative w-full">
                 <input
                   type="email"
                   value={gmail}
@@ -70,7 +70,7 @@ const Login = () => {
 
               <button
                 type="submit"
-                className="bg-yellow-600 text-white hover:bg-yellow-500 duration-200 px-3 rounded-md"
+                className="bg-yellow-600 text-white py-2 sm:py-0 hover:bg-yellow-500 duration-200 px-5 sm:px-3 rounded-md"
               >
                 Submit
               </button>

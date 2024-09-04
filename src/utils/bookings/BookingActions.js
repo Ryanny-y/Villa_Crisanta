@@ -10,9 +10,18 @@ const BookingActions = (
   setBookingData,
   setDataChanged,
   editedField,
-  setEditedField
+  setEditedField,
+  setActionMessage
 ) => {
   const { isAuthorized, accessToken } = useContext(AdminContext);
+
+  const showMsgAction = (msg) => {
+    setActionMessage(msg);
+
+    setTimeout(() => {
+      setActionMessage('')
+    }, 1000);
+  }
 
   // HANDLE EDIT BOOKING
   const handleEdit = async () => {
@@ -57,7 +66,6 @@ const BookingActions = (
           throw new Error(errMsg);
         }        
 
-        console.log(filteredBody);
         const data = await response.json();
         return data;
         
@@ -68,7 +76,7 @@ const BookingActions = (
       setActionPerformed(p => !p);
       setEditedField([])
     } catch (error) {
-      alert(error.message)
+      setActionMessage(error.message)
     }
   };
 
@@ -95,13 +103,13 @@ const BookingActions = (
         }
 
         const data = await response.json();
-        console.log(data);
+        showMsgAction(data.message);
         setActionPerformed((prev) => !prev);
       } else {
         throw new Error("Unauthorized");
       }
     } catch (error) {
-      console.log(error.message);
+      setActionMessage(error.message)
     }
   };
 
@@ -110,7 +118,7 @@ const BookingActions = (
     const matchingBooking = origData.find((data) => data._id === id);
 
     if (!matchingBooking) {
-      alert("Bookiong Not Found!");
+      setActionMessage("Bookiong Not Found!");
       return;
     }
 
@@ -131,6 +139,7 @@ const BookingActions = (
     viewBookingDetail,
     filterByResort,
     handleEdit,
+    showMsgAction
   };
 };
 
